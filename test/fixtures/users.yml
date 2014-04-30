@@ -1,0 +1,20 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  employeeID: fbd12354
+  first_name: Mike
+  last_name: Jones
+  company: one
+  email: email@www.com
+  phone_number: +25476898736
+  role: one
+
+two:
+  employeeID: MyString
+  first_name: MyString
+  last_name: MyString
+  company_id: 1
+  email: MyString
+  phone_number: MyString
+  role_id: MyString
