@@ -7,7 +7,7 @@ Login:
 
     POST /verify.json
 
-    post :create, {email: "email@www.com"}
+    post :verify, {email: "email@www.com"}
 
     response.body: "{\"user_id\":980190962,\"message\":\"You are logged in\",\"status\":\"success\"}"
 
