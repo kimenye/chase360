@@ -15,7 +15,7 @@ Login:
     
 Request Products and Companies
     
-    GET  /companies/:company_name.js
+    GET  /companies/:company_name.json
     
     get :show, company_name: "company_one"
     
