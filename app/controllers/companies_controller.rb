@@ -3,8 +3,11 @@ class CompaniesController < ApplicationController
   
   def show
     company = Company.find_by(name: params[:company_name])
+    
     if company
-      render json: {company_name: company.name, categories_and_products: company.categories.includes(:products),  status: :success}
+      categories = company.categories.includes(:products)
+      products = categories.collect{|c| c.products}
+      render json: {company_name: company.name, categories: categories, products: products,  status: :success}
     else
       render json: {message: "Company does not exist", status: :unprocessable_entity}
     end

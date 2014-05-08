@@ -4,7 +4,8 @@ class CompaniesControllerTest < ActionController::TestCase
   def test_call_products_and_categories_for_existing_company
     get :show, company_name: "company_one"
     assert JSON(response.body)['company_name'] == companies(:one).name, "does not return company"
-    assert JSON(response.body)['categories_and_products'].nil? == false, "does not return companies categories and products"
+    assert JSON(response.body)['categories'].nil? == false, "does not return companies categories"
+    assert JSON(response.body)['products'].nil? == false, "does not return companies products"
     assert JSON(response.body)['status'] == "success", "does not pass correct status"
   end
   
