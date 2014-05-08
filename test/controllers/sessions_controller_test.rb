@@ -3,6 +3,8 @@ require "test_helper"
 class SessionsControllerTest < ActionController::TestCase
   def test_sign_in_with_correct_creds
     post :create, {email: "email@www.com"}
+    assert JSON(response.body)['user_role'] == users(:one).role_name
+    assert JSON(response.body)['user_email'] == users(:one).email
     assert JSON(response.body)['message'] == "You are logged in", "sign in does not pass correctly"
     assert JSON(response.body)['status'] == "success", "sign in does not pass correct status"
   end

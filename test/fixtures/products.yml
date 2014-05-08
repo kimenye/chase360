@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  category_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: product_one
+  category: one
+
+two:
+  name: product_two
+  category: one
+  
+three:
+  name: product_three
+  category: two
+
+four:
+  name: product_four
+  category: two

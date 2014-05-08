@@ -6,7 +6,7 @@ class RoleTest < ActiveSupport::TestCase
     @role ||= Role.new
   end
 
-  def test_valid
+  def role_name
     assert role.valid?
   end
 

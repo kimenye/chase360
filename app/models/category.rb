@@ -1,13 +1,15 @@
 # == Schema Information
 #
-# Table name: companies
+# Table name: categories
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
+#  company_id :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Company < ActiveRecord::Base
-  has_many :categories
+class Category < ActiveRecord::Base
+  belongs_to :company
+  has_many :products
 end

@@ -2,6 +2,8 @@ Chase360::Application.routes.draw do
   match 'verify', to: 'sessions#create', as: 'verify', via: "post"
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
+  get 'companies/:company_name', to: 'companies#show', as: :show
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,9 +1,10 @@
 # == Schema Information
 #
-# Table name: companies
+# Table name: categories
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
+#  company_id :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -12,7 +13,9 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: company_one
+  name: category_one
+  company: one
 
 two:
-  name: company_two
+  name: category_two
+  company: one
