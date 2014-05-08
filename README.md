@@ -1,7 +1,7 @@
 CHASE360
 ========
 
-Base URL: 
+Base URL: http://chase360.herokuapp.com/
 
 Login:
 
