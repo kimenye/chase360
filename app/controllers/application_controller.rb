@@ -8,10 +8,19 @@ class ApplicationController < ActionController::Base
     render json: {message: "You must be signed in to access that page"} if current_user.nil?
   end
   
+  def authenticate_admin
+    user = User.find_by_email(params[:email])
+    
+    if user
+      session[:user_id] = user.id
+    end
+  end
+  
   private
     
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
     helper_method :current_user
+    
 end
