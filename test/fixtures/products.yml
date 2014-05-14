@@ -4,6 +4,8 @@
 #
 #  id          :integer          not null, primary key
 #  name        :string(255)
+#  description :text
+#  image_uid   :string(255)
 #  category_id :integer
 #  created_at  :datetime
 #  updated_at  :datetime
@@ -15,15 +17,23 @@
 one:
   name: product_one
   category: one
+  description: This is product one description
+  image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")
 
 two:
   name: product_two
   category: one
+  description: This is product two description
+  image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")
   
 three:
   name: product_three
   category: two
+  description: This is product three description
+  image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")
 
 four:
   name: product_four
   category: two
+  description: This is product four description
+  image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")

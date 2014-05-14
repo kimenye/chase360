@@ -12,4 +12,8 @@
 class Category < ActiveRecord::Base
   belongs_to :company
   has_many :products
+  
+  def as_json *args
+    super(except: [:created_at, :updated_at])
+  end
 end

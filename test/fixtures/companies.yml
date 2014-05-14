@@ -2,10 +2,12 @@
 #
 # Table name: companies
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text
+#  image_uid   :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 # Read about fixtures at
@@ -13,6 +15,10 @@
 
 one:
   name: company_one
+  description: This is a description of company one
+  image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG1.jpg", "image/png")
 
 two:
   name: company_two
+  description: This is a description of company one
+  image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")
