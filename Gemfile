@@ -66,6 +66,14 @@ group :test, :development do
   gem 'sqlite3'
 end
 
+group :production do
+ 
+  # Rails 12factor
+  # Makes running your Rails app easier. Based on the ideas behind 12factor.net
+  # Needed for support of Asset Pipeline with Heroku
+  # https://github.com/heroku/rails_12factor
+  gem 'rails_12factor'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
