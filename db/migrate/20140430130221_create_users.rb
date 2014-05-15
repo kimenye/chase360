@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :phone_number
       t.string :role_id
+      t.boolean :backend_admin
 
       t.timestamps
     end

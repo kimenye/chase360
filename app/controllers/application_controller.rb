@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
   end
   
   def authenticate_admin
-    user = User.find_by_email(params[:email])
+    @current_user ||= User.find_by_email(params[:email]) 
     
-    if user
+    if @current_user && @current_user.backend_admin?
       session[:user_id] = user.id
     end
   end
