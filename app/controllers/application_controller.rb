@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     
     if @current_user && @current_user.backend_admin?
       session[:user_id] = user.id
+      return true
     end
   end
   
