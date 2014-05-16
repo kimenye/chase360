@@ -12,8 +12,8 @@ Dragonfly.app.configure do
   if Rails.env.production?
     datastore :s3,
     bucket_name: ENV["S3_BUCKET_NAME"],
-    access_key_id: ENV["S3_ACCESS_ID"],
-    secret_access_key: ENV["S3_ACCESS_KEY"]
+    access_key_id: ENV["S3_ACCESS_KEY_ID"],
+    secret_access_key: ENV["S3_SECRET_ACCESS_KEY"]
   else
     datastore :file,
       root_path: Rails.root.join('public/system/dragonfly', Rails.env),
