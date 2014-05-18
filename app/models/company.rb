@@ -22,6 +22,6 @@ class Company < ActiveRecord::Base
   end
   
   def image_url
-    image.try(:url)
+    "#{ENV["host"]}#{image.try(:url)}"
   end
 end
