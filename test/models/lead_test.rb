@@ -12,6 +12,7 @@ class LeadTest < ActiveSupport::TestCase
 	lead.name = "Test"    
 	lead.email = "me@gmail.com"    
 	lead.phone_number = "254676987988"    
+	lead.submitted_by_id = users(:one).id
 
 	assert lead.valid?
   end
