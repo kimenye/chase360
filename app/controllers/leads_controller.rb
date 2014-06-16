@@ -10,6 +10,7 @@ class LeadsController < ApplicationController
 
 	def create
 		@lead = Lead.new(lead_params)
+		@lead.status = "New"
 		if @lead.save
 			render json: { id: @lead.id }		
 		else

@@ -18,4 +18,5 @@ class Lead < ActiveRecord::Base
 	validates :email, presence: true
 	validates :phone_number, presence: true
 	validates :submitted_by_id, presence: true
+	validates :status, presence: true
 end

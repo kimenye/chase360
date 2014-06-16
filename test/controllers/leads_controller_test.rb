@@ -31,4 +31,12 @@ class LeadsControllerTest < ActionController::TestCase
   	assert_response :success
   end
 
+  def test_that_a_leads_status_is_set_to_new_when_it_is_submitted
+  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id }
+  	assert_response :success
+
+  	lead = Lead.last
+  	assert "New", lead.status
+  end
+
 end
