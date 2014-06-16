@@ -14,7 +14,7 @@ class LeadsControllerTest < ActionController::TestCase
   end
 
   def test_a_lead_id_is_returned_if_the_lead_is_successfully_saved  	
-  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id }
+  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id }
   	assert_response :success
 
   	id = JSON(response.body)['id']
@@ -24,6 +24,7 @@ class LeadsControllerTest < ActionController::TestCase
   	assert "Muaad", lead.name
   	assert "2123456789", lead.phone_number
   	assert "sdfsd@gmail.com", lead.email
+    assert products(:one).id, lead.product_id
   end
 
   def test_that_a_lead_is_submitted_by_a_user

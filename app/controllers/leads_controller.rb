@@ -20,6 +20,6 @@ class LeadsController < ApplicationController
 
 	private
 		def lead_params
-	      params.permit(:phone_number, :name, :email, :submitted_by_id)
+	      params.permit(:phone_number, :name, :email, :submitted_by_id, :product_id)
 	    end
 end

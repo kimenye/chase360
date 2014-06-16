@@ -11,8 +11,8 @@
 #  assigned_to_id  :integer
 #  created_at      :datetime
 #  updated_at      :datetime
-#  company_id      :integer
 #  branch_id       :integer
+#  product_id      :integer
 #
 
 class Lead < ActiveRecord::Base
@@ -23,5 +23,5 @@ class Lead < ActiveRecord::Base
 	validates :status, presence: true
 
 	belongs_to :branch
-	belongs_to :company
+	belongs_to :product
 end
