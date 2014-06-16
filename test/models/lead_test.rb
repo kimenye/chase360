@@ -7,7 +7,13 @@ class LeadTest < ActiveSupport::TestCase
   end
 
   def test_valid
-    assert lead.valid?
+    assert_equal false, lead.valid?
+
+	lead.name = "Test"    
+	lead.email = "me@gmail.com"    
+	lead.phone_number = "254676987988"    
+
+	assert lead.valid?
   end
 
 end
