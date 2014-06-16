@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616122733) do
+ActiveRecord::Schema.define(version: 20140616135233) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20140616122733) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "branches", force: true do |t|
+    t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "branches", ["company_id"], name: "index_branches_on_company_id"
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -52,7 +61,12 @@ ActiveRecord::Schema.define(version: 20140616122733) do
     t.integer  "assigned_to_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "company_id"
+    t.integer  "branch_id"
   end
+
+  add_index "leads", ["branch_id"], name: "index_leads_on_branch_id"
+  add_index "leads", ["company_id"], name: "index_leads_on_company_id"
 
   create_table "products", force: true do |t|
     t.string   "name"

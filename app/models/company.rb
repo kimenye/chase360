@@ -12,6 +12,7 @@
 
 class Company < ActiveRecord::Base
   has_many :categories
+  has_many :branches
   
   dragonfly_accessor :image
   

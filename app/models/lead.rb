@@ -11,6 +11,8 @@
 #  assigned_to_id  :integer
 #  created_at      :datetime
 #  updated_at      :datetime
+#  company_id      :integer
+#  branch_id       :integer
 #
 
 class Lead < ActiveRecord::Base
@@ -19,4 +21,7 @@ class Lead < ActiveRecord::Base
 	validates :phone_number, presence: true
 	validates :submitted_by_id, presence: true
 	validates :status, presence: true
+
+	belongs_to :branch
+	belongs_to :company
 end
