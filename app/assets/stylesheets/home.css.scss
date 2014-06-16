@@ -1,0 +1,13 @@
+.home.index {
+	padding: 3rem;
+
+	.login {
+		.link {
+			display: block;
+			background: rgba(255,255,255,.8) asset-url("login.png", image) no-repeat 50% 50%;
+			width: 150px;
+			height: 46px;
+			margin: auto;
+		}
+	} 
+}
