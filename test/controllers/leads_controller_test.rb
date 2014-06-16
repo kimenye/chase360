@@ -18,14 +18,14 @@ class LeadsControllerTest < ActionController::TestCase
   	assert_response :success
 
   	id = JSON(response.body)['id']
-  	assert id, Lead.last.id
+  	assert_equal id, Lead.last.id
 
   	lead = Lead.find(id)
-  	assert "Muaad", lead.name
-  	assert "2123456789", lead.phone_number
-  	assert "sdfsd@gmail.com", lead.email
-    assert products(:one).id, lead.product_id
-    assert branches(:one).id, lead.branch_id
+  	assert_equal "Muaad", lead.name
+  	assert_equal "2123456789", lead.phone_number
+  	assert_equal "sdfsd@gmail.com", lead.email
+    assert_equal products(:one).id, lead.product_id
+    assert_equal branches(:one).id, lead.branch_id
   end
 
   def test_that_a_lead_is_submitted_by_a_user
@@ -38,7 +38,15 @@ class LeadsControllerTest < ActionController::TestCase
   	assert_response :success
 
   	lead = Lead.last
-  	assert "New", lead.status
+  	assert_equal "New", lead.status
+  end
+
+  def test_that_a_note_is_saved_when_passed_in_during_lead_creation
+    post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id, message: "this guy is cool" }
+    assert_response :success
+
+    note = Note.last    
+    assert_equal "this guy is cool", note.message
   end
 
 
