@@ -13,4 +13,17 @@ class LeadsControllerTest < ActionController::TestCase
   	assert_response :unprocessable_entity
   end
 
+  def test_a_lead_id_is_returned_if_the_lead_is_successfully_saved  	
+  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com" }
+  	assert_response :success
+
+  	id = JSON(response.body)['id']
+  	assert id, Lead.last.id
+
+  	lead = Lead.find(id)
+  	assert "Muaad", lead.name
+  	assert "2123456789", lead.phone_number
+  	assert "sdfsd@gmail.com", lead.email
+  end
+
 end

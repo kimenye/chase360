@@ -11,7 +11,7 @@ class LeadsController < ApplicationController
 	def create
 		@lead = Lead.new(lead_params)
 		if @lead.save
-			render json: { id: @lead.id, status: :success }		
+			render json: { id: @lead.id }		
 		else
 			render json: {message: "Please check either your name, email address or phone_number" }, status: :unprocessable_entity
 		end
@@ -19,6 +19,6 @@ class LeadsController < ApplicationController
 
 	private
 		def lead_params
-	      params.permit(:phone_number, :name)
+	      params.permit(:phone_number, :name, :email)
 	    end
 end
