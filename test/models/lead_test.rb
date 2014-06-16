@@ -15,6 +15,7 @@ class LeadTest < ActiveSupport::TestCase
 	lead.submitted_by_id = users(:one).id
 	lead.status="New"
 	lead.product_id=products(:one).id
+	
 
 	assert lead.valid?
   end

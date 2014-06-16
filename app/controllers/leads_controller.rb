@@ -11,6 +11,7 @@ class LeadsController < ApplicationController
 	def create
 		@lead = Lead.new(lead_params)
 		@lead.status = "New"
+
 		if @lead.save
 			render json: { id: @lead.id }		
 		else
@@ -20,6 +21,6 @@ class LeadsController < ApplicationController
 
 	private
 		def lead_params
-	      params.permit(:phone_number, :name, :email, :submitted_by_id, :product_id)
+	      params.permit(:phone_number, :name, :email, :submitted_by_id, :product_id, :branch_id)
 	    end
 end

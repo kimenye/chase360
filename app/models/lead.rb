@@ -22,6 +22,7 @@ class Lead < ActiveRecord::Base
 	validates :submitted_by_id, presence: true
 	validates :status, presence: true
 	validates :product_id, presence: true
+	
 
 	belongs_to :branch
 	belongs_to :product
