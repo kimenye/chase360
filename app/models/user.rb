@@ -15,7 +15,8 @@
 
 class User < ActiveRecord::Base
   belongs_to :role
-  
+  devise :omniauthable
+
   def role_name
     role.name
   end

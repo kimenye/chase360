@@ -36,6 +36,9 @@ gem 'figaro'
 
 #active_admin
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
