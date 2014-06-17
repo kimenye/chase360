@@ -9,11 +9,22 @@ The Base URL is: http://chase360.herokuapp.com/
     
     The URL is POST {BASE_URL}/verify.json
     
+#### Request
+
     post :verify, { email: "email@www.com" }
 
-    pass response.body: "{\"user_id\":980190962,\"user_email\":\"email@www.com\",\"user_role\":\"manager\",\"message\":\"You are logged in\",\"status\":\"success\"}"
 
-    fail response.body: “{\"message\":\"Email is invalid\",\"status\":\"unprocessable_entity\"}"
+#### Response    
+
+    ```json
+    {
+        "user_id": 980190962,
+        "user_email": "email@www.com",
+        "user_role": "manager",
+        "message": "You are logged in",
+        "status": "success"
+    }
+    ```
     
 ### Request Companies
     
