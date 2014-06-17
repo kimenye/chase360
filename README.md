@@ -1,20 +1,23 @@
-CHASE360
-========
+# Chase 360
 
-Base URL: http://chase360.herokuapp.com/
 
-Login:
+## Overview
 
-    POST /verify.json
+The Base URL is: http://chase360.herokuapp.com/
 
-    post :verify, {email: "email@www.com"}
+### Login
+    
+    The URL is POST {BASE_URL}/verify.json
+    
+    post :verify, { email: "email@www.com" }
 
     pass response.body: "{\"user_id\":980190962,\"user_email\":\"email@www.com\",\"user_role\":\"manager\",\"message\":\"You are logged in\",\"status\":\"success\"}"
 
     fail response.body: “{\"message\":\"Email is invalid\",\"status\":\"unprocessable_entity\"}"
     
-Request Companies
-    GET  /companies.json
+### Request Companies
+    
+    GET  {BASE_URL}/companies.json
     
     get :index
     
