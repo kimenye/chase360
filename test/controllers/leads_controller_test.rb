@@ -13,6 +13,10 @@ class LeadsControllerTest < ActionController::TestCase
   	assert_response :unprocessable_entity
   end
 
+  def test_can_return_leads_created_by_a_specific_user
+    get :index, { submitted_by_id: users(:bank).id }
+  end
+
   def test_a_lead_id_is_returned_if_the_lead_is_successfully_saved  	
   	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id}
   	assert_response :success
