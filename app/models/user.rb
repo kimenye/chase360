@@ -21,9 +21,14 @@
 class User < ActiveRecord::Base
   belongs_to :role
   devise :omniauthable
+  has_many :chase_points
 
   def role_name
     role.name
+  end
+
+  def points_available
+  	chase_points.collect { |point| point.redeemed ? 0 : point.amount }.inject{ |sum,x| sum + x }
   end
 
   def name

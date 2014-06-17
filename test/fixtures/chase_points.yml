@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: chase_points
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  action     :string(255)
+#  amount     :integer
+#  redeemed   :boolean
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: one 
+  action: MyString
+  amount: 10
+  redeemed: false
+
+two:
+  user: one
+  action: MyString
+  amount: 1
+  redeemed: true
