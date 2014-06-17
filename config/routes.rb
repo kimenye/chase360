@@ -7,7 +7,7 @@ Chase360::Application.routes.draw do
   post "users/:id", to: 'users#update', as: 'update_user'
   
 
-  resources :companies, :leads
+  resources :companies, :leads, :users
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

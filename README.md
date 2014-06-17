@@ -110,14 +110,42 @@ The Base URL is: http://chase360.herokuapp.com/
     }
     
 
-Submitting a Lead
+### Submitting a Lead
     
-    POST /leads.json
+#### Request    
+    
+    The Url is POST {BASE_URL}/leads.json
 
     params { name, email, phone_number, submitted_by_id, message, product_id, branch_id }
 
-    Returns
+#### Response
 
-    id of the lead if there are no validation errors
+    {
+        "id": 1
+    }
 
-    { id: 2 }
+### Retrieving Leads
+
+You can get a listing of all the leads currently saved
+
+#### Request
+    
+    The URL is GET {BASE_URL}/leads.json
+
+    params { submitted_by_id }
+
+#### Response
+    
+    Depending on whether you have specifed a submitted_by_id you will get an array of all the leads in json
+
+    [
+        {
+            "id" : 1,
+            "product_id" : 1,
+            "branch_id": 1,
+            "submitted_by_id" : 1,
+            "status" : "New",
+            "email" : "user@domain.com",
+            "phone_number" : "2541234567890"
+        }
+    ]

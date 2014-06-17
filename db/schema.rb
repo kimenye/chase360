@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617094833) do
+ActiveRecord::Schema.define(version: 20140617101806) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 20140617094833) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "chase_points", force: true do |t|
+    t.integer  "user_id"
+    t.string   "action"
+    t.integer  "amount"
+    t.boolean  "redeemed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "chase_points", ["user_id"], name: "index_chase_points_on_user_id"
 
   create_table "companies", force: true do |t|
     t.string   "name"

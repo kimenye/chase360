@@ -22,3 +22,13 @@ two:
   name: company_two
   description: This is a description of company one
   image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")
+
+bank:
+  name: Chase Bank
+  description: This is a description of company one
+  image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")
+
+chase_assurance:
+  name: Chase Assurance
+  description: This is a description of company one
+  image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")

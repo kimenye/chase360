@@ -16,4 +16,13 @@ class UsersControllerTest < ActionController::TestCase
   	assert_equal companies(:one).id, user.company.id
   	assert_equal "Marketing", user.department
   end
+
+  def test_that_we_can_get_a_user_profile
+
+    get :show, id: users(:one), format: :json
+    assert_response :success
+
+    assert JSON(response.body)['id'] == users(:one).id, "does not return user id"
+    assert JSON(response.body)['points_available'] == 10, "does not return correct available_points"
+  end
 end

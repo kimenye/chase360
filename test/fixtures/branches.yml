@@ -14,8 +14,12 @@
 
 one:
   name: MyString
-  company: 
+  company: one
 
 two:
   name: MyString
-  company: 
+  company: two
+
+ca_hq:
+  name: Head Quarters
+  company: chase_assurance

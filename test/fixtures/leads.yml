@@ -26,10 +26,10 @@ one:
   status: MyString
   assigned_to_id: 1
 
-two:
+open:
   name: MyString
   email: MyString
   phone_number: MyString
-  submitted_by_id: 1
-  status: MyString
+  submitted_by: bank
+  status: Open
   assigned_to_id: 1

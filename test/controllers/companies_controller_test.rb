@@ -3,6 +3,7 @@ require "test_helper"
 class CompaniesControllerTest < ActionController::TestCase
   def test_index_returns_all_companies
     get :index, :format => :json
+    assert_response :success
   end
   
   def test_call_and_existing_company  

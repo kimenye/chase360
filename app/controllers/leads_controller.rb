@@ -2,9 +2,11 @@ class LeadsController < ApplicationController
 	respond_to :json
 
 	def index
-		# @companies = Company.all
-    	# render json: @companies, only: [:id, :name, :description, :image_url]
-    	@leads = Lead.all
+		if params[:submitted_by_id].present?
+			# @leads = Lead.
+		else
+    		@leads = Lead.all
+    	end
     	render json: @leads
 	end
 
@@ -22,6 +24,10 @@ class LeadsController < ApplicationController
 		else
 			render json: {message: "Please check either your name, email address or phone_number" }, status: :unprocessable_entity
 		end
+	end
+
+	def close
+		# @lead = Lead.f
 	end
 
 	private

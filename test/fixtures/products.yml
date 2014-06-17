@@ -33,8 +33,8 @@ three:
   description: This is product three description
   image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")
 
-four:
+insurance:
   name: product_four
-  company: two
+  company: chase_assurance
   description: This is product four description
   image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")

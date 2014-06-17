@@ -26,4 +26,26 @@ class Lead < ActiveRecord::Base
 
 	belongs_to :branch
 	belongs_to :product
+	belongs_to :submitted_by, class_name: "User"
+	belongs_to :assigned_to, class_name: "User"
+	after_create :assign_chase_points	
+	after_create :assign_lead	
+
+
+	private
+		def assign_chase_points
+			if submitted_by
+				ChasePoint.create! user: submitted_by, amount: 5, redeemed: false 
+			end
+		end
+
+		def assign_lead
+			# find the company
+			company = product.company
+			users = User.where(company_id: company.id, role_id: Role.find_by(name: "relationship officer").id)			
+			if !users.empty?
+				self.assigned_to_id = users.sample.id
+				save!
+			end
+		end
 end
