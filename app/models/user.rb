@@ -14,6 +14,8 @@
 #  updated_at    :datetime
 #  provider      :string(255)
 #  uid           :string(255)
+#  company_id    :integer
+#  department    :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -22,5 +24,9 @@ class User < ActiveRecord::Base
 
   def role_name
     role.name
+  end
+
+  def name
+  	"#{first_name} #{last_name}"
   end
 end

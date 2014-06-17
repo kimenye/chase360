@@ -16,7 +16,7 @@ The Base URL is: http://chase360.herokuapp.com/
 
 #### Response    
 
-    ```
+    
     {
         "user_id": 980190962,
         "user_email": "email@www.com",
@@ -24,8 +24,24 @@ The Base URL is: http://chase360.herokuapp.com/
         "message": "You are logged in",
         "status": "success"
     }
-    ```
     
+    
+
+### Setting up a Profile
+
+    The URL is POST {BASE_URL}/users/{:id}.json
+
+#### Request
+    
+    post { name: "Trevor Kimenye", company_id: 1, phone_number: "254722876889", department: "Marketing" }
+
+#### Response
+
+    {
+        "id" : 980190962,
+        "status" : "success"
+    }
+
 ### Request Companies
     
 
@@ -38,13 +54,13 @@ The Base URL is: http://chase360.herokuapp.com/
     
     The response is an array of companies
 
-    ```
+    
     [
         {
             "id": 1,
             "name": "Chase Bank",
             "description": "A cool bank",
-            "image_url": "/media/W1siZiIsIjIwMTQvMDYvMTcvMXNpc3g0czM3al9DaGFzZUJhbmtMb2dvLmpwZyJdXQ?sha=bc252c6c",
+            "image_url": "/media/W1siZiIsIjIwMTQvMDYvMTcvMXNpc3",
             "branches": [
                 {
                     "id": 2,
@@ -61,9 +77,9 @@ The Base URL is: http://chase360.herokuapp.com/
             ]
         }
     ]
-    ```
     
-### Request a Single Company
+    
+### Requesting a Single Company
 
 #### Request
     
@@ -73,7 +89,7 @@ The Base URL is: http://chase360.herokuapp.com/
     
 #### Response
 
-    ```
+
     {
         "id": 1,
         "name": "Chase Bank",
@@ -92,7 +108,7 @@ The Base URL is: http://chase360.herokuapp.com/
             }
         ]
     }
-    ```
+    
 
 Submitting a Lead
     

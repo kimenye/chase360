@@ -4,6 +4,7 @@ Chase360::Application.routes.draw do
   match 'verify', to: 'sessions#create', as: 'verify', via: "post"
   get 'logout', to: 'sessions#destroy', as: 'logout'
   root :to => "home#index"
+  post "users/:id", to: 'users#update', as: 'update_user'
   
 
   resources :companies, :leads

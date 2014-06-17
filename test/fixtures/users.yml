@@ -14,6 +14,8 @@
 #  updated_at    :datetime
 #  provider      :string(255)
 #  uid           :string(255)
+#  company_id    :integer
+#  department    :string(255)
 #
 
 # Read about fixtures at
