@@ -3,7 +3,7 @@ class LeadsController < ApplicationController
 
 	def index
 		if params[:submitted_by_id].present?
-			# @leads = Lead.
+			@leads = Lead.where(submitted_by_id: params[:submitted_by_id])
 		else
     		@leads = Lead.all
     	end

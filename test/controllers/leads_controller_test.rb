@@ -15,6 +15,9 @@ class LeadsControllerTest < ActionController::TestCase
 
   def test_can_return_leads_created_by_a_specific_user
     get :index, { submitted_by_id: users(:bank).id }
+    assert_response :success
+
+    assert Lead.where(submitted_by_id: users(:bank).id).count == JSON(response.body).count
   end
 
   def test_a_lead_id_is_returned_if_the_lead_is_successfully_saved  	
