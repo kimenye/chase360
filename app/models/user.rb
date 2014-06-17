@@ -20,6 +20,7 @@
 
 class User < ActiveRecord::Base
   belongs_to :role
+  belongs_to :company
   devise :omniauthable
 
   def role_name
@@ -29,4 +30,5 @@ class User < ActiveRecord::Base
   def name
   	"#{first_name} #{last_name}"
   end
+
 end

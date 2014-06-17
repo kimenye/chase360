@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
-# Use mysql as the database for Active Record
-gem 'mysql2'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -80,6 +79,9 @@ group :production do
   # Needed for support of Asset Pipeline with Heroku
   # https://github.com/heroku/rails_12factor
   gem 'rails_12factor'
+
+  # Use mysql as the database for Active Record
+  gem 'mysql2'
 end
 
 # Use ActiveModel has_secure_password
