@@ -33,7 +33,7 @@ The Base URL is: http://chase360.herokuapp.com/
 
 #### Request
     
-    post { First_name: "Trevor", Second_name: "Kimenye", company_id: 1, phone_number: "254722876889", department: "Marketing" }
+    post { First_name: "Trevor", Last_name: "Kimenye", company_id: 1, phone_number: "254722876889", department: "Marketing" }
 
 #### Response
 
@@ -117,6 +117,22 @@ The Base URL is: http://chase360.herokuapp.com/
     The Url is POST {BASE_URL}/leads.json
 
     params { name, email, phone_number, submitted_by_id, message, product_id, branch_id }
+
+
+#### Response
+
+    {
+        "id": 1
+    }
+
+
+### Changing a lead's Status
+
+#### Request    
+    
+    The Url is POST {BASE_URL}/leads.json
+
+    params { id }
 
 #### Response
 
