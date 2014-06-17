@@ -22,7 +22,7 @@ class LeadsController < ApplicationController
 
 			render json: { id: @lead.id }		
 		else
-			render json: {message: "Please check either your name, email address or phone_number" }, status: :unprocessable_entity
+			render json: {message: "Please check either your name, email address or phone_number or submitted_by_id" }, status: :unprocessable_entity
 		end
 	end
 
