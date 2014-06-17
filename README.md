@@ -16,7 +16,7 @@ The Base URL is: http://chase360.herokuapp.com/
 
 #### Response    
 
-    ```json
+    ```
     {
         "user_id": 980190962,
         "user_email": "email@www.com",
@@ -28,21 +28,71 @@ The Base URL is: http://chase360.herokuapp.com/
     
 ### Request Companies
     
-    GET  {BASE_URL}/companies.json
-    
-    get :index
-    
-    response.body: [{\"id\":298486374,\"name\":\"company_two\",\"description\":\"This is a description of company one\",\"image_url\":\"http://chase360.herokuapp.com/media/W1siZiIsImZpeHR1cmVfZmlsZV91cGxvYWQoXCIje1JhaWxzLnJvb3R9L3Rlc3QvYXNzZXRzL2ltYWdlcy9JTUcyLmpwZ1wiLCBcImltYWdlL3BuZ1wiKSJdXQ?sha=3dd8717b\"},{\"id\":980190962,\"name\":\"company_one\",\"description\":\"This is a description of company one\",\"image_url\":\"http://chase360.herokuapp.com/media/W1siZiIsImZpeHR1cmVfZmlsZV91cGxvYWQoXCIje1JhaWxzLnJvb3R9L3Rlc3QvYXNzZXRzL2ltYWdlcy9JTUcxLmpwZ1wiLCBcImltYWdlL3BuZ1wiKSJdXQ?sha=01d22041\"}]"
-    
-Request Products and Companies
-    
-    GET  /companies/:id.json
-    
-    get :show, id: company_id
-    
-    pass response.body: "{\"company_id\":980190962,\"company_name\":\"company_one\",\"categories\":[{\"id\":298486374,\"name\":\"category_two\",\"company_id\":980190962},{\"id\":980190962,\"name\":\"category_one\",\"company_id\":980190962}],\"products\":[[{\"id\":113629430,\"name\":\"product_three\",\"description\":\"This is product three description\",\"category_id\":298486374,\"image_url\":\"http://chase360.herokuapp.com/media/W1siZiIsImZpeHR1cmVfZmlsZV91cGxvYWQoXCIje1JhaWxzLnJvb3R9L3Rlc3QvYXNzZXRzL2ltYWdlcy9JTUcyLmpwZ1wiLCBcImltYWdlL3BuZ1wiKSJdXQ?sha=3dd8717b\"},{\"id\":281110143,\"name\":\"product_four\",\"description\":\"This is product four description\",\"category_id\":298486374,\"image_url\":\"http://chase360.herokuapp.com/media/W1siZiIsImZpeHR1cmVfZmlsZV91cGxvYWQoXCIje1JhaWxzLnJvb3R9L3Rlc3QvYXNzZXRzL2ltYWdlcy9JTUcyLmpwZ1wiLCBcImltYWdlL3BuZ1wiKSJdXQ?sha=3dd8717b\"}],[{\"id\":298486374,\"name\":\"product_two\",\"description\":\"This is product two description\",\"category_id\":980190962,\"image_url\":\"http://chase360.herokuapp.com/media/W1siZiIsImZpeHR1cmVfZmlsZV91cGxvYWQoXCIje1JhaWxzLnJvb3R9L3Rlc3QvYXNzZXRzL2ltYWdlcy9JTUcyLmpwZ1wiLCBcImltYWdlL3BuZ1wiKSJdXQ?sha=3dd8717b\"},{\"id\":980190962,\"name\":\"product_one\",\"description\":\"This is product one description\",\"category_id\":980190962,\"image_url\":\"http://chase360.herokuapp.com/media/W1siZiIsImZpeHR1cmVfZmlsZV91cGxvYWQoXCIje1JhaWxzLnJvb3R9L3Rlc3QvYXNzZXRzL2ltYWdlcy9JTUcyLmpwZ1wiLCBcImltYWdlL3BuZ1wiKSJdXQ?sha=3dd8717b\"}]],\"status\":\"success\"}"
 
-    fail response.body: "{\"message\":\"Company does not exist\",\"status\":\"unprocessable_entity\"}"
+#### Request    
+    
+    The Url is GET  {BASE_URL}/companies.json
+    
+
+#### Response
+    
+    The response is an array of companies
+
+    ```
+    [
+        {
+            "id": 1,
+            "name": "Chase Bank",
+            "description": "A cool bank",
+            "image_url": "/media/W1siZiIsIjIwMTQvMDYvMTcvMXNpc3g0czM3al9DaGFzZUJhbmtMb2dvLmpwZyJdXQ?sha=bc252c6c",
+            "branches": [
+                {
+                    "id": 2,
+                    "name": "Wabera Street, Nairobi"
+                }
+            ],
+            "products": [
+                {
+                    "id": 1,
+                    "name": "Savings account",
+                    "description": "This is a simple savings account from chase bank",
+                    "image_url": ""
+                }
+            ]
+        }
+    ]
+    ```
+    
+### Request a Single Company
+
+#### Request
+    
+    The Url is GET {BASE_URL}/companies/{:id}.json
+
+    E.g http://chase360.herokuapp.com/companies/2.json
+    
+#### Response
+
+    ```
+    {
+        "id": 1,
+        "name": "Chase Bank",
+        "branches": [
+            {
+                "id": 2,
+                "name": "Wabera Street, Nairobi"
+            }
+        ],
+        "products": [
+            {
+                "id": 1,
+                "name": "Savings account",
+                "description": "This is a simple savings account from chase bank",
+                "image_url": ""
+            }
+        ]
+    }
+    ```
 
 Submitting a Lead
     

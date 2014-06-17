@@ -9,6 +9,7 @@
 #  category_id :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  company_id  :integer
 #
 
 # Read about fixtures at
@@ -16,24 +17,24 @@
 
 one:
   name: product_one
-  category: one
+  company: one
   description: This is product one description
   image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")
 
 two:
   name: product_two
-  category: one
+  company: one
   description: This is product two description
   image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")
   
 three:
   name: product_three
-  category: two
+  company: two
   description: This is product three description
   image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")
 
 four:
   name: product_four
-  category: two
+  company: two
   description: This is product four description
   image_uid: fixture_file_upload("#{Rails.root}/test/assets/images/IMG2.jpg", "image/png")

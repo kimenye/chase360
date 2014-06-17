@@ -69,6 +69,8 @@ group :test, :development do
   # To use debugger
   gem 'debugger'
   gem 'sqlite3'
+  gem 'pry'
+  gem 'pry-nav'
 end
 
 group :production do

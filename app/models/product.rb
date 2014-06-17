@@ -9,10 +9,12 @@
 #  category_id :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  company_id  :integer
 #
 
 class Product < ActiveRecord::Base
-  belongs_to :category
+  # belongs_to :category
+  belongs_to :company
   
   dragonfly_accessor :image
   
