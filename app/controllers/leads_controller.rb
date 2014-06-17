@@ -3,7 +3,7 @@ class LeadsController < ApplicationController
 
 	def index
 		if params[:submitted_by_id].present?
-			# @leads = Lead.
+			@leads = Lead.where(submitted_by_id: params[:submitted_by_id])
 		else
     		@leads = Lead.all
     	end
@@ -22,12 +22,17 @@ class LeadsController < ApplicationController
 
 			render json: { id: @lead.id }		
 		else
-			render json: {message: "Please check either your name, email address or phone_number" }, status: :unprocessable_entity
+			render json: {message: "Please check either your name, email address or phone_number or submitted_by_id" }, status: :unprocessable_entity
 		end
 	end
 
 	def close
-		# @lead = Lead.f
+		@lead = Lead.find(params[:id])
+		@lead.status = "Closed"
+		
+		if @lead.save
+			render json: { id: @lead.id }
+		end
 	end
 
 	private
