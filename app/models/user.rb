@@ -20,6 +20,8 @@
 
 class User < ActiveRecord::Base
   belongs_to :role
+  belongs_to :company
+  
   devise :omniauthable
   has_many :chase_points
 
@@ -28,7 +30,11 @@ class User < ActiveRecord::Base
   end
 
   def points_available
-  	chase_points.collect { |point| point.redeemed ? 0 : point.amount }.inject{ |sum,x| sum + x }
+    if !chase_points.empty?
+      return chase_points.collect { |point| point.redeemed ? 0 : point.amount }.inject{ |sum,x| sum + x }
+    else
+      return 0
+    end
   end
 
   def name

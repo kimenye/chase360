@@ -36,3 +36,12 @@ two:
   email: MyString
   phone_number: MyString
   role_id: MyString
+
+bank:
+  email: test@chasebank.co.ke
+  role: one
+
+chase_assurance_ro:
+  email: sales@chaseassurance.com
+  role: ro
+  company: chase_assurance
