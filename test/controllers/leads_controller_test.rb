@@ -56,5 +56,17 @@ class LeadsControllerTest < ActionController::TestCase
     assert_equal "this guy is cool", note.message
   end
 
+  def test_that_a_lead_can_be_closed
+    status_before = leads(:new).status
+    
+    post :close, { id: leads(:new).id }
+    assert_response :success
+
+    id = JSON(response.body)['id']
+    lead = Lead.find(id)
+
+    assert "Closed" == lead.status, "The lead status was not updated"
+  end
+
 
 end

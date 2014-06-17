@@ -27,7 +27,12 @@ class LeadsController < ApplicationController
 	end
 
 	def close
-		# @lead = Lead.f
+		@lead = Lead.find(params[:id])
+		@lead.status = "Closed"
+		
+		if @lead.save
+			render json: { id: @lead.id }
+		end
 	end
 
 	private
