@@ -35,6 +35,8 @@ gem 'figaro'
 
 #active_admin
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'active_admin_import_anything'
+gem 'simple_xlsx_reader'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'

@@ -24,6 +24,7 @@ ActiveAdmin.register Product do
 
   index do
     column :id
+    column :company
     column :name
     column :description
     column :image
@@ -31,18 +32,17 @@ ActiveAdmin.register Product do
   end
   
   permit_params :name, :description, :image, :company_id
-  
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
+
+
+  active_admin_import_anything do |file|
+    #write the code to handle the imported file
+    doc = SimpleXlsxReader.open(file.tempfile)
+        
+    main_sheet = doc.sheets.first
+    main_sheet.rows[1..main_sheet.rows.length].each do |row|
+      company = Company.find_by(name: row[0])
+      Product.create! company: company, name: row[1], description: row[2]
+    end
+  end
   
 end
