@@ -24,7 +24,7 @@ ActiveAdmin.register User do
     column :role
     column :backend_admin
     column :points_available
-
+    default_actions
   end
   
 end

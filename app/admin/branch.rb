@@ -18,6 +18,7 @@ ActiveAdmin.register Branch do
     column :id
     column :company
     column :name
+    default_actions
   end
   
 end
