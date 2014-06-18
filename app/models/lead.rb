@@ -31,6 +31,9 @@ class Lead < ActiveRecord::Base
 	after_create :assign_chase_points	
 	after_create :assign_lead	
 
+	def company
+		product.company
+	end
 
 	private
 		def assign_chase_points

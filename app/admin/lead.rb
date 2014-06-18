@@ -13,5 +13,18 @@ ActiveAdmin.register Lead do
   #  permitted << :other if resource.something?
   #  permitted
   # end
+
+  index do
+    column :id
+    column :name
+    column :phone_number
+    column :status
+    column :submitted_by
+    column :assigned_to
+    column :company
+    column :product    
+    column :branch
+    default_actions
+  end
   
 end

@@ -21,6 +21,13 @@ ActiveAdmin.register Product do
     end
     
   end
+
+  index do
+    column :id
+    column :name
+    column :description
+    column :image
+  end
   
   permit_params :name, :description, :image, :company_id
   

@@ -13,5 +13,11 @@ ActiveAdmin.register Branch do
   #  permitted << :other if resource.something?
   #  permitted
   # end
+
+  index do
+    column :id
+    column :company
+    column :name
+  end
   
 end

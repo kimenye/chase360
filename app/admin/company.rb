@@ -18,6 +18,13 @@ ActiveAdmin.register Company do
     end
     
   end
+
+  index do
+    column :id
+    column :name
+    column :description
+    column :image
+  end
   
   permit_params :name, :description, :image
   # See permitted parameters documentation:
