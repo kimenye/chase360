@@ -23,8 +23,8 @@ ActiveAdmin.register Lead do
       @lead = Lead.find(params[:id])
 
       @lead.verified = true
-      @lead.value = params[:value]
-      @lead.verified_by_id = params[:verified_by_id]
+      @lead.value = params[:lead][:value]
+      @lead.verified_by_id = params[:lead][:verified_by_id]
       @lead.status = "Verified"
       @lead.save!
 

@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20140623083755) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "branches", force: true do |t|
     t.string   "name"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140623083755) do
     t.datetime "updated_at"
   end
 
-  add_index "branches", ["company_id"], name: "index_branches_on_company_id"
+  add_index "branches", ["company_id"], name: "index_branches_on_company_id", using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140623083755) do
     t.datetime "updated_at"
   end
 
-  add_index "chase_points", ["user_id"], name: "index_chase_points_on_user_id"
+  add_index "chase_points", ["user_id"], name: "index_chase_points_on_user_id", using: :btree
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -75,15 +75,15 @@ ActiveRecord::Schema.define(version: 20140623083755) do
     t.integer  "branch_id"
     t.integer  "product_id"
     t.boolean  "verified"
-    t.decimal  "value"
+    t.decimal  "value",           precision: 10, scale: 0
     t.integer  "verified_by_id"
   end
 
-  add_index "leads", ["assigned_to_id"], name: "index_leads_on_assigned_to_id"
-  add_index "leads", ["branch_id"], name: "index_leads_on_branch_id"
-  add_index "leads", ["product_id"], name: "index_leads_on_product_id"
-  add_index "leads", ["submitted_by_id"], name: "index_leads_on_submitted_by_id"
-  add_index "leads", ["verified_by_id"], name: "index_leads_on_verified_by_id"
+  add_index "leads", ["assigned_to_id"], name: "index_leads_on_assigned_to_id", using: :btree
+  add_index "leads", ["branch_id"], name: "index_leads_on_branch_id", using: :btree
+  add_index "leads", ["product_id"], name: "index_leads_on_product_id", using: :btree
+  add_index "leads", ["submitted_by_id"], name: "index_leads_on_submitted_by_id", using: :btree
+  add_index "leads", ["verified_by_id"], name: "index_leads_on_verified_by_id", using: :btree
 
   create_table "notes", force: true do |t|
     t.text     "message"
@@ -93,8 +93,8 @@ ActiveRecord::Schema.define(version: 20140623083755) do
     t.datetime "updated_at"
   end
 
-  add_index "notes", ["lead_id"], name: "index_notes_on_lead_id"
-  add_index "notes", ["user_id"], name: "index_notes_on_user_id"
+  add_index "notes", ["lead_id"], name: "index_notes_on_lead_id", using: :btree
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "name"
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20140623083755) do
     t.integer  "company_id"
   end
 
-  add_index "products", ["company_id"], name: "index_products_on_company_id"
+  add_index "products", ["company_id"], name: "index_products_on_company_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -131,6 +131,6 @@ ActiveRecord::Schema.define(version: 20140623083755) do
     t.boolean  "setup"
   end
 
-  add_index "users", ["company_id"], name: "index_users_on_company_id"
+  add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
 
 end

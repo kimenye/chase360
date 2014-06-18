@@ -42,6 +42,8 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'haml-rails'
 gem 'foundation-rails'
+gem 'groupdate'  
+gem 'chartkick' 
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

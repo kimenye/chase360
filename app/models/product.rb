@@ -25,4 +25,8 @@ class Product < ActiveRecord::Base
   def image_url
     "#{ENV["host"]}#{image.try(:url)}"
   end
+
+  def to_s
+  	name
+  end
 end
