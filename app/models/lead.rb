@@ -31,9 +31,14 @@ class Lead < ActiveRecord::Base
 	belongs_to :product
 	belongs_to :submitted_by, class_name: "User"
 	belongs_to :assigned_to, class_name: "User"
-	belongs_to :verified_by_id,class_name:"User"
+	belongs_to :verified_by,class_name:"User"
 	after_create :assign_chase_points	
-	after_create :assign_lead	
+	after_create :assign_lead
+
+	scope :open, where(:status => "New")	
+	scope :closed, where(:status => "Closed")	
+	scope :verified, where(:status => "Verified")	
+	scope :all, where("")
 
 
 	def company

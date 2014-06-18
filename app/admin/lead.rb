@@ -1,20 +1,40 @@
 ActiveAdmin.register Lead do
 
-  
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
+  scope :open
+  scope :verified
+  scope :closed
+  scope :all
 
-  permit_params :name, :phone_number, :email, :status, :submitted_by_id, :assigned_to_id, :product_id, :branch_id
+
+  member_action :verify do
+    @lead = Lead.find(params[:id])
+  end
+
+  action_item :only => :show do
+    link_to('Verify', verify_admin_lead_path(lead)) if lead.status == "Closed"
+  end
+
+  member_action :confirm, :method => :post  do
+    @lead = Lead.find(params[:id])
+  end
+
+  controller do
+    def confirm
+      @lead = Lead.find(params[:id])
+
+      @lead.verified = true
+      @lead.value = params[:value]
+      @lead.verified_by_id = params[:verified_by_id]
+      @lead.status = "Verified"
+      @lead.save!
+
+      respond_to do |format|
+        format.html { redirect_to admin_lead_path(@lead), notice: "Lead was verified" }
+      end
+    end
+  end
+
+  permit_params :name, :phone_number, :email, :status, :submitted_by_id, :assigned_to_id, :product_id, :branch_id, :verified_by_id, :value
 
   index do
     column :id
@@ -27,7 +47,10 @@ ActiveAdmin.register Lead do
     column :company
     column :product    
     column :branch
-    default_actions
+    
+    actions defaults: true do |lead|
+      link_to 'Verify', verify_admin_lead_path(lead) if lead.status == "Closed"
+    end
   end
   
 end

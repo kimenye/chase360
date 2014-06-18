@@ -1,0 +1,5 @@
+= semantic_form_for :lead, url: { action: :confirm } do |f|
+	= f.inputs do
+		= f.input :value, input_html: { placeholder: "Value of the lead in KES" }	
+		= f.input :verified_by_id, as: :select, collection: User.select(:first_name, :last_name).uniq
+	= f.submit "Verify Lead"
