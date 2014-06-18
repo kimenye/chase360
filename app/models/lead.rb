@@ -45,7 +45,7 @@ class Lead < ActiveRecord::Base
 		def assign_lead
 			# find the company
 			company = product.company
-			users = User.where(company_id: company.id, role_id: Role.find_by(name: "relationship officer").id)			
+			users = User.where(company_id: company.id, role_id: Role.find_by(name: "Relationship Officer").id)			
 			if !users.empty?
 				self.assigned_to_id = users.sample.id
 				save!
