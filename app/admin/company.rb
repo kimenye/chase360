@@ -2,7 +2,7 @@ ActiveAdmin.register Company do
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Details" do
       f.input :name
-      f.input :description
+      # f.input :description
       f.input :image, :as => :file
     end
     f.actions
@@ -11,7 +11,7 @@ ActiveAdmin.register Company do
   show do |co|
     attributes_table do
       row :name
-      row :description
+      # row :description
       row :image do
         image_tag(co.image.thumb('300x200#').url) if co.image_stored?
       end
@@ -22,8 +22,9 @@ ActiveAdmin.register Company do
   index do
     column :id
     column :name
-    column :description
+    # column :description
     column :image
+    default_actions
   end
   
   permit_params :name, :description, :image
