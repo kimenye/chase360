@@ -20,5 +20,16 @@ ActiveAdmin.register Branch do
     column :name
     default_actions
   end
+
+  active_admin_import_anything do |file|
+    #write the code to handle the imported file
+    doc = SimpleXlsxReader.open(file.tempfile)
+        
+    main_sheet = doc.sheets.first
+    main_sheet.rows[1..main_sheet.rows.length].each do |row|
+      company = Company.find_by(name: row[0])
+      Branch.create! company: company, name: row[1]
+    end
+  end
   
 end
