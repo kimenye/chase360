@@ -126,7 +126,7 @@ The Base URL is: http://chase360.herokuapp.com/
     }
 
 
-### Changing a lead's Status
+### Closing a lead
 
 #### Request    
     

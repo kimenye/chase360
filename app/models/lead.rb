@@ -13,6 +13,9 @@
 #  updated_at      :datetime
 #  branch_id       :integer
 #  product_id      :integer
+#  verified        :boolean
+#  value           :decimal(, )
+#  verified_by_id  :integer
 #
 
 class Lead < ActiveRecord::Base
@@ -28,8 +31,10 @@ class Lead < ActiveRecord::Base
 	belongs_to :product
 	belongs_to :submitted_by, class_name: "User"
 	belongs_to :assigned_to, class_name: "User"
+	belongs_to :verified_by_id,class_name:"User"
 	after_create :assign_chase_points	
 	after_create :assign_lead	
+
 
 	def company
 		product.company

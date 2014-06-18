@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617101806) do
+ActiveRecord::Schema.define(version: 20140618130656) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -74,10 +74,16 @@ ActiveRecord::Schema.define(version: 20140617101806) do
     t.datetime "updated_at"
     t.integer  "branch_id"
     t.integer  "product_id"
+    t.boolean  "verified"
+    t.decimal  "value"
+    t.integer  "verified_by_id"
   end
 
+  add_index "leads", ["assigned_to_id"], name: "index_leads_on_assigned_to_id"
   add_index "leads", ["branch_id"], name: "index_leads_on_branch_id"
   add_index "leads", ["product_id"], name: "index_leads_on_product_id"
+  add_index "leads", ["submitted_by_id"], name: "index_leads_on_submitted_by_id"
+  add_index "leads", ["verified_by_id"], name: "index_leads_on_verified_by_id"
 
   create_table "notes", force: true do |t|
     t.text     "message"
