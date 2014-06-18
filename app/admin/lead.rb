@@ -14,6 +14,8 @@ ActiveAdmin.register Lead do
   #  permitted
   # end
 
+  permit_params :name, :phone_number, :status, :submitted_by_id, :assigned_to_id, :product_id, :branch_id
+
   index do
     column :id
     column :name
