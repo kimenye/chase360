@@ -23,6 +23,7 @@ The Base URL is: http://chase360.herokuapp.com/
         "user_role": "manager",
         "message": "You are logged in",
         "status": "success"
+        "setup":"true"
     }
     
     
