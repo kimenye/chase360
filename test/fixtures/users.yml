@@ -16,6 +16,7 @@
 #  uid           :string(255)
 #  company_id    :integer
 #  department    :string(255)
+#  setup         :boolean
 #
 
 # Read about fixtures at

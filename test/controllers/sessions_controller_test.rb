@@ -7,6 +7,7 @@ class SessionsControllerTest < ActionController::TestCase
     assert JSON(response.body)['user_email'] == users(:one).email
     assert JSON(response.body)['message'] == "You are logged in", "sign in does not pass correctly"
     assert JSON(response.body)['status'] == "success", "sign in does not pass correct status"
+    assert JSON(response.body)['setup'] == true
   end
   
   def test_sign_in_with_incorrect_creds
@@ -18,5 +19,7 @@ class SessionsControllerTest < ActionController::TestCase
     delete :destroy
     assert response.body == "{\"message\":\"You are logged out\",\"status\":\"success\"}", "log out does not pass correctly"
   end
+
+
 
 end
