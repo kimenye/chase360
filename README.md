@@ -34,7 +34,7 @@ The Base URL is: http://chase360.herokuapp.com/
 
 #### Request
     
-    post { First_name: "Trevor", Last_name: "Kimenye", company_id: 1, phone_number: "254722876889", department: "Marketing" }
+    post { First_name: "Trevor", Last_name: "Kimenye", company_id: 1, phone_number: "254722876889", department: "Marketing" :setup}
 
 #### Response
 
