@@ -70,6 +70,7 @@ GEM
     celluloid-io (0.15.0)
       celluloid (>= 0.15.0)
       nio4r (>= 0.5.0)
+    chartkick (1.2.5)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -131,6 +132,8 @@ GEM
     foundation-rails (5.2.3.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    groupdate (2.1.1)
+      activerecord (>= 3.0.0)
     guard (2.6.0)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -332,6 +335,7 @@ DEPENDENCIES
   annotate
   capybara
   capybara-webkit
+  chartkick
   coffee-rails (~> 4.0.0)
   database_cleaner
   debugger
@@ -340,6 +344,7 @@ DEPENDENCIES
   dragonfly-s3_data_store
   figaro
   foundation-rails
+  groupdate
   guard-minitest
   haml-rails
   jbuilder (~> 1.2)
