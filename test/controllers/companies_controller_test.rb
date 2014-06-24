@@ -17,4 +17,10 @@ class CompaniesControllerTest < ActionController::TestCase
     assert JSON(response.body)['message'] == "Company does not exist", "does not error out for non-existant company"
     assert JSON(response.body)['status'] == "unprocessable_entity", "wrong fail status passed for non-existence company"
   end
+
+  def test_get_company_summary_details
+    get :summary, :format => :json
+    assert_response :success
+    assert Company.count, JSON(response.body).count
+  end
 end
