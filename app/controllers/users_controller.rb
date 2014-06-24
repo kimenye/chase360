@@ -7,8 +7,11 @@ class UsersController < ApplicationController
 
 	def update
 		# TODO
+		params[:setup] = true
 		@user = User.find(params[:id])
 		@user.update user_params
+		# @user.setup = true
+		# @user.save!
 		render json: { id: params[:id].to_i, status: "success"}
 	
 	end
