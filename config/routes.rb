@@ -3,10 +3,13 @@ Chase360::Application.routes.draw do
   ActiveAdmin.routes(self)
   match 'verify', to: 'sessions#create', as: 'verify', via: "post"
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'summary', to: 'companies#summary', as: 'company_summary'
+
   root :to => "home#index"
   
   post "users/:id", to: 'users#update', as: 'update_user'
   post "leads/:id", to: 'leads#close', as: 'close_lead'
+
 
   resources :companies, :leads, :users
   

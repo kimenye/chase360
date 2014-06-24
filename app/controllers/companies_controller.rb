@@ -11,4 +11,8 @@ class CompaniesController < ApplicationController
       render json: {message: "Company does not exist", status: :unprocessable_entity}
     end
   end
+
+  def summary
+     @companies = Company.all 
+  end
 end

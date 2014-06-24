@@ -19,6 +19,7 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   def test_get_company_summary_details
+    # Company.create! id: 1, name: "Chase Bank"
     get :summary, :format => :json
     assert_response :success
     assert Company.count, JSON(response.body).count
