@@ -8,7 +8,6 @@ class SessionsControllerTest < ActionController::TestCase
     assert JSON(response.body)['message'] == "You are logged in", "sign in does not pass correctly"
     assert JSON(response.body)['status'] == "success", "sign in does not pass correct status"
     assert JSON(response.body)['setup'] == users(:one).setup
-
   end
   
   def test_sign_in_with_incorrect_creds
