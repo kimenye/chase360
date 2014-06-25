@@ -1,5 +1,5 @@
-Hi <%= "#{@submitted_by_user.first_name} #{@submitted_by_user.last_name}" %>,
-	<p>The lead that you submitted has been closed by <%= "#{@user.first_name} #{@user.last_name}" %>. The details of the lead were:</p>
+Hi <%= @submitted_by_user.name %>,
+	<p>The lead that you submitted has been closed by <%= @user.name%>. The details of the lead were:</p>
 	<p>Name: <%= @lead.name %>,</p>
 	<p>Email: <%= @lead.email %>,</p>
 	<p>Phone Number: <%= @lead.phone_number %></p>
