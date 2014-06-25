@@ -1,6 +1,7 @@
 ActiveAdmin.register_page "Lead Growth"  do
 
-	menu :parent => "Reports"
+	# menu :parent => "Reports"
+	menu false
 
   content do
     @metric = Lead.group_by_day(:created_at, day_start: 2).count

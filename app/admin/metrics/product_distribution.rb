@@ -1,4 +1,4 @@
-ActiveAdmin.register_page "Product Distribution"  do
+ActiveAdmin.register_page "Product Distribution By Numbers"  do
 
 	menu :parent => "Reports"
 

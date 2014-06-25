@@ -1,4 +1,4 @@
-ActiveAdmin.register_page "Verified Product Distribution"  do
+ActiveAdmin.register_page "Verified Leads Distribution By Value"  do
 
 	menu :parent => "Reports"
 
