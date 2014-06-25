@@ -48,8 +48,7 @@ ActiveAdmin.register Lead do
 
       @lead.status = "Closed"
       @lead.save!
-      # product = @lead.product
-      # company = product.company
+      ChasePoint.create! user: @lead.assigned_to, amount: 10, redeemed: false
       manager = User.where(company_id: @lead.product.company.id, role_id: Role.find_by(name: "Manager").id).sample
       LeadMailer.closed_lead_notification(@lead.assigned_to, @lead, @lead.submitted_by).deliver
       LeadMailer.closed_lead_notification_to_manager(@lead.assigned_to, @lead, manager,@lead.submitted_by).deliver
