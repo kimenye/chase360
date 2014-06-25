@@ -39,8 +39,10 @@ ActiveAdmin.register Lead do
   end
 
   action_item :only => :show, :method => :post do
-    link_to('Close', close_admin_lead_path(lead)) if lead.status != "Closed"
+    link_to('Close', close_admin_lead_path(lead)) if lead.status == "New" 
+      
   end
+
 
   controller do
     def close
