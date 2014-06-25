@@ -26,4 +26,16 @@ class LeadMailer < ActionMailer::Base
       puts "Message sending failed! #{e.backtrace}"
     end
   end
+
+  def closed_lead_notification_to_manager(user, lead, manager, submitted_by_user)
+    begin
+      @user = user
+      @lead = lead
+      @manager = manager
+      @submitted_by_user = submitted_by_user
+      mail(from: "rdg@df.dfg", to: manager.email, subject: "Lead has been Closed!")
+    rescue Exception => e
+      puts "Message sending failed! #{e.backtrace}"
+    end
+  end
 end
