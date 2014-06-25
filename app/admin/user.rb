@@ -24,6 +24,7 @@ ActiveAdmin.register User do
     column :company
     column :department
     column :points_available
+    column :setup
     default_actions
   end
 
@@ -35,6 +36,7 @@ ActiveAdmin.register User do
       f.input :role
       f.input :company  
       f.input :department    
+      f.input :setup
     end
     f.actions
   end
