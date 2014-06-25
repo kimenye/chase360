@@ -2,7 +2,7 @@ ActiveAdmin.register Company do
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Details" do
       f.input :name
-      # f.input :description
+      f.input :description
       f.input :image, :as => :file
     end
     f.actions
