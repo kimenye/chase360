@@ -45,6 +45,10 @@ class Lead < ActiveRecord::Base
 		product.company
 	end
 
+	def day_created
+		created_at.to_date
+	end
+
 	private
 		def assign_chase_points
 			if submitted_by

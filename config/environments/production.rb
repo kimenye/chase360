@@ -45,6 +45,9 @@ Chase360::Application.configure do
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
+
+  config.action_mailer.perform_deliveries = false
+
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
