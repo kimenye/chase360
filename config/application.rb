@@ -22,5 +22,25 @@ module Chase360
     
     config.assets.initialize_on_precompile = false
     config.assets.precompile += %w[active_admin.css.scss active_admin.js]
+    
+    config.action_mailer.smtp_settings = {
+          :address   => "smtp.mandrillapp.com",
+          :port      => 587,
+          :user_name => ENV["MANDRILL_USERNAME"],
+          :password  => ENV["MANDRILL_APIKEY"]
+        }
+        # config.action_mailer.smtp_settings = {
+        #   address: "smtp.gmail.com",
+        #   port: 587,
+        #   domain: "gmail.com",
+        #   authentication: "plain",
+        #   enable_starttls_auto: true,
+        #   user_name: "xxxxxx",
+        #   password: "xxxxxxxx"
+        # }
+      # ActionMailer Config
+      config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+      config.action_mailer.delivery_method = :smtp
+      config.action_mailer.raise_delivery_errors = true
   end
 end

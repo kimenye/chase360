@@ -57,8 +57,10 @@ class Lead < ActiveRecord::Base
 			company = product.company
 			users = User.where(company_id: company.id, role_id: Role.find_by(name: "Relationship Officer").id)			
 			if !users.empty?
-				self.assigned_to_id = users.sample.id
+				user = users.sample
+				self.assigned_to_id = user.id
 				save!
+				LeadMailer.assigned_notification(user,self).deliver
 			end
 		end
 end

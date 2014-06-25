@@ -1,0 +1,6 @@
+Hi <%= "#{@user.first_name} #{@user.last_name}" %>,
+	<p>A new lead has been assigned to you. The details of the lead are as follows:</p>
+	<p>Name: <%= @lead.name %>,</p>
+	<p>Email: <%= @lead.email %>,</p>
+	<p>Phone Number: <%= @lead.phone_number %></p>
+	<p>Product: <%= @lead.product.name %></p>

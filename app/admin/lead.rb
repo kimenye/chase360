@@ -34,6 +34,28 @@ ActiveAdmin.register Lead do
     end
   end
 
+  member_action :close  do
+    @lead = Lead.find(params[:id])
+  end
+
+  action_item :only => :show, :method => :post do
+    link_to('Close', close_admin_lead_path(lead)) if lead.status != "Closed"
+  end
+
+  controller do
+    def close
+      @lead = Lead.find(params[:id])
+
+      @lead.status = "Closed"
+      @lead.save!
+
+      LeadMailer.closed_lead_notification(@lead.assigned_to, @lead, @lead.submitted_by).deliver
+      respond_to do |format|
+        format.html { redirect_to admin_lead_path(@lead), notice: "Lead was Closed!" }
+      end
+    end
+  end
+
   permit_params :name, :phone_number, :email, :status, :submitted_by_id, :assigned_to_id, :product_id, :branch_id, :verified_by_id, :value
 
   index do
@@ -50,6 +72,7 @@ ActiveAdmin.register Lead do
     
     actions defaults: true do |lead|
       link_to 'Verify', verify_admin_lead_path(lead) if lead.status == "Closed"
+      # link_to 'Close', close_admin_lead_path(lead)
     end
   end
   
