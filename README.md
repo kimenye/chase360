@@ -23,7 +23,7 @@ The Base URL is: http://chase360.herokuapp.com/
         "user_role": "manager",
         "message": "You are logged in",
         "status": "success"
-        "setup":"true"
+        "setup": true
     }
     
     
@@ -34,7 +34,7 @@ The Base URL is: http://chase360.herokuapp.com/
 
 #### Request
     
-    post { First_name: "Trevor", Last_name: "Kimenye", company_id: 1, phone_number: "254722876889", department: "Marketing" :setup}
+    post { name: "Trevor Kimenye", company_id: 1, phone_number: "254722876889", department: "Marketing", id: 1 }
 
 #### Response
 
