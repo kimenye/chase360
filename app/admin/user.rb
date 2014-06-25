@@ -22,7 +22,7 @@ ActiveAdmin.register User do
     column :phone_number
     column :role
     column :company
-    colomn :department
+    column :department
     column :points_available
     default_actions
   end
