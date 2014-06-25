@@ -22,8 +22,21 @@ ActiveAdmin.register User do
     column :phone_number
     column :role
     column :company
+    colomn :department
     column :points_available
     default_actions
+  end
+
+  form do |f|
+    f.inputs "Details" do
+      f.input :name
+      f.input :email
+      f.input :phone_number
+      f.input :role
+      f.input :company  
+      f.input :department    
+    end
+    f.actions
   end
   
 end
