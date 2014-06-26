@@ -4,7 +4,7 @@ ActiveAdmin.register Lead do
   scope :verified
   scope :closed
   scope :all
-
+  
 
   member_action :verify do
     @lead = Lead.find(params[:id])

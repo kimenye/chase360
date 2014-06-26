@@ -10,7 +10,7 @@ class LeadMailer < ActionMailer::Base
     begin
       @user = user
       @lead = lead
-      mail(from: "rdg@df.dfg", to: user.email, subject: "Assigned Lead")
+      mail(from: "admin@chase360.com", to: user.email, subject: "Assigned Lead")
     rescue Exception => e
       puts "Message sending failed! #{e.backtrace}"
     end
@@ -21,7 +21,7 @@ class LeadMailer < ActionMailer::Base
       @user = user
       @lead = lead
       @submitted_by_user = submitted_by_user
-      mail(from: "rdg@df.dfg", to: submitted_by_user.email, subject: "Lead has been Closed!")
+      mail(from: "admin@chase360.com", to: submitted_by_user.email, subject: "Lead has been Closed!")
     rescue Exception => e
       puts "Message sending failed! #{e.backtrace}"
     end
@@ -33,7 +33,7 @@ class LeadMailer < ActionMailer::Base
       @lead = lead
       @manager = manager
       @submitted_by_user = submitted_by_user
-      mail(from: "rdg@df.dfg", to: manager.email, subject: "Lead has been Closed!")
+      mail(from: "admin@chase360.com", to: manager.email, subject: "Lead has been Closed!")
     rescue Exception => e
       puts "Message sending failed! #{e.backtrace}"
     end
