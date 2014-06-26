@@ -4,7 +4,7 @@ ActiveAdmin.register Lead do
   scope :verified
   scope :closed
   scope :all
-  
+
 
   member_action :verify do
     @lead = Lead.find(params[:id])
@@ -52,8 +52,12 @@ ActiveAdmin.register Lead do
       @lead.save!
       ChasePoint.create! user: @lead.assigned_to, amount: 10, redeemed: false
       manager = User.where(company_id: @lead.product.company.id, role_id: Role.find_by(name: "Manager").id).sample
+
       LeadMailer.closed_lead_notification(@lead.assigned_to, @lead, @lead.submitted_by).deliver
-      LeadMailer.closed_lead_notification_to_manager(@lead.assigned_to, @lead, manager,@lead.submitted_by).deliver
+      if !manager.nil?
+        LeadMailer.closed_lead_notification_to_manager(@lead.assigned_to, @lead, manager,@lead.submitted_by).deliver
+      end
+      
       respond_to do |format|
         format.html { redirect_to admin_lead_path(@lead), notice: "Lead was Closed!" }
       end
