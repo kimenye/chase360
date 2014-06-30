@@ -13,6 +13,7 @@ class LeadsController < ApplicationController
 	def create
 		@lead = Lead.new(lead_params)
 		@lead.status = "New"
+		@lead.assigned_to_id = params["assigned_to_id"] if !params["assigned_to_id"].nil?
 
 		if @lead.save
 

@@ -28,4 +28,14 @@ class UsersControllerTest < ActionController::TestCase
     assert JSON(response.body)['id'] == users(:one).id, "does not return user id"
     assert JSON(response.body)['points_available'] == 10, "does not return correct available_points"
   end
+
+  def test_that_we_can_get_all_users_who_are_relationship_officers
+    get :relationship_officers, id: companies(:chase_assurance), format: :json
+    assert_response :success
+
+    # puts JSON(response.body)['users'][0]['id']
+
+    assert JSON(response.body)['users'][1]['id'] == users(:chase_assurance_ro).id, "does not return user id"
+    # assert JSON(response.body)['points_available'] == 10, "does not return correct available_points"
+  end
 end

@@ -42,12 +42,22 @@ class LeadsControllerTest < ActionController::TestCase
 
   def test_that_a_leads_status_is_set_to_new_when_it_is_submitted
     Lead.delete_all
-  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id }
+    post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id }
+    assert_response :success
+    
+
+    lead = Lead.last
+    assert_equal "New", lead.status
+  end
+
+  def test_that_a_leads_assigned_to_a_user_that_was_passed_in
+    Lead.delete_all
+  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, assigned_to_id: users(:chase_assurance_ro).id, product_id: products(:one).id, branch_id: branches(:one).id }
   	assert_response :success
     
 
   	lead = Lead.last
-  	assert_equal "New", lead.status
+  	assert_equal users(:chase_assurance_ro).id, lead.assigned_to_id
   end
 
   def test_that_a_note_is_saved_when_passed_in_during_lead_creation
