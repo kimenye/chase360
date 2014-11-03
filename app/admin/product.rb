@@ -27,6 +27,7 @@ ActiveAdmin.register Product do
   index do
     column :id
     column :company
+    column :category
     column :name
     column :description
     column :image
