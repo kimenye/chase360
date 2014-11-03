@@ -13,9 +13,10 @@
 class Company < ActiveRecord::Base
   has_many :categories
   has_many :branches
-  has_many :products
+  has_many :products, -> { where active: true }
   has_many :users
   
+  # scope :active_products, -> { where(active: true )}
   dragonfly_accessor :image
   
   attr_accessor :image_url
