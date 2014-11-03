@@ -98,4 +98,4 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-ruby "2.1.1"
+ruby "2.1.0"

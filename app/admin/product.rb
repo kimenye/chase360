@@ -5,6 +5,7 @@ ActiveAdmin.register Product do
       f.input :name
       f.input :company
       f.input :description
+      f.input :category
       f.input :image, :as => :file
     end
     f.actions
@@ -15,6 +16,7 @@ ActiveAdmin.register Product do
       row :name
       row :description
       row :company
+      row :category
       row :image do
         image_tag(p.image.thumb('300x200#').url) if p.image_stored?
       end
@@ -31,7 +33,7 @@ ActiveAdmin.register Product do
     default_actions
   end
   
-  permit_params :name, :description, :image, :company_id
+  permit_params :name, :description, :image, :company_id, :category_id
 
 
   active_admin_import_anything do |file|

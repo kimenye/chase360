@@ -11,7 +11,7 @@
 #
 
 class Company < ActiveRecord::Base
-  # has_many :categories
+  has_many :categories
   has_many :branches
   has_many :products
   has_many :users
