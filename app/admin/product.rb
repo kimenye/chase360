@@ -7,7 +7,7 @@ ActiveAdmin.register Product do
       f.input :description
       f.input :category
       f.input :image, :as => :file
-      f.input :active
+      f.input :active, :as => :checkbox
     end
     f.actions
   end
@@ -37,7 +37,7 @@ ActiveAdmin.register Product do
     default_actions
   end
   
-  permit_params :name, :description, :image, :company_id, :category_id
+  permit_params :name, :description, :image, :company_id, :category_id, :active
 
 
   active_admin_import_anything do |file|
