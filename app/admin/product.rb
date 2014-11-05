@@ -7,7 +7,7 @@ ActiveAdmin.register Product do
       f.input :description
       f.input :category
       f.input :image, :as => :file
-      f.input :active, :as => :checkbox
+      f.input :active, :as => :boolean
     end
     f.actions
   end
