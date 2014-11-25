@@ -16,6 +16,7 @@
 #  department    :string(255)
 #  setup         :boolean
 #  name          :string(255)
+#  image_uid     :string(255)
 #
 
 # Read about fixtures at

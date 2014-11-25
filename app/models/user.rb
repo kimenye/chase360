@@ -16,6 +16,7 @@
 #  department    :string(255)
 #  setup         :boolean
 #  name          :string(255)
+#  image_uid     :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -23,6 +24,8 @@ class User < ActiveRecord::Base
   belongs_to :company
   devise :omniauthable
   has_many :chase_points
+
+  dragonfly_accessor :image
 
   def role_name
     role.name
@@ -34,6 +37,10 @@ class User < ActiveRecord::Base
     else
       return 0
     end
+  end
+
+  def image_url
+    "#{ENV["host"]}#{image.try(:url)}"
   end
 
   # def name

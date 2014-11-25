@@ -5,7 +5,8 @@ Chase360::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'summary', to: 'companies#summary', as: 'company_summary'
   get 'company/:id/users', to:'users#relationship_officers',as:'relationship_officers'
-  root :to => "home#index"
+  # root :to => "home#index"
+  root to: "admin/dashboard#index"
   
   post "users/:id", to: 'users#update', as: 'update_user'
   post "leads/:id", to: 'leads#close', as: 'close_lead'

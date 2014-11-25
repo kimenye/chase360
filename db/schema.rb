@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103155909) do
+ActiveRecord::Schema.define(version: 20141125070403) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(version: 20141103155909) do
     t.string   "department"
     t.boolean  "setup"
     t.string   "name"
+    t.string   "image_uid"
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id"
