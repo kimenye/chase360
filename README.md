@@ -116,6 +116,14 @@ The Base URL is: http://chase360.herokuapp.com/
         ]
     }
     
+### Departments
+
+#### Request
+    
+    The Url is GET {BASE_URL}/departments.json
+
+#### Response
+
 
 ### Submitting a Lead
     

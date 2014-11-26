@@ -12,7 +12,7 @@ Chase360::Application.routes.draw do
   post "leads/:id", to: 'leads#close', as: 'close_lead'
 
 
-  resources :companies, :leads, :users
+  resources :companies, :leads, :users, :departments
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
