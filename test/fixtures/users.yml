@@ -13,10 +13,10 @@
 #  provider      :string(255)
 #  uid           :string(255)
 #  company_id    :integer
-#  department    :string(255)
 #  setup         :boolean
 #  name          :string(255)
 #  image_uid     :string(255)
+#  department_id :integer
 #
 
 # Read about fixtures at

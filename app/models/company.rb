@@ -13,6 +13,7 @@
 class Company < ActiveRecord::Base
   has_many :categories
   has_many :branches
+  has_many :departments
   has_many :products, -> { where active: true }
   has_many :users
   

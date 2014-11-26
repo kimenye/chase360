@@ -34,7 +34,7 @@ The Base URL is: http://chase360.herokuapp.com/
 
 #### Request
     
-    post { name: "Trevor Kimenye", company_id: 1, phone_number: "254722876889", department: "Marketing", id: 1 }
+    post { name: "Trevor Kimenye", company_id: 1, phone_number: "254722876889", department_id: 1, id: 1, image: "" }
 
 #### Response
 
@@ -74,6 +74,12 @@ The Base URL is: http://chase360.herokuapp.com/
                     "name": "Savings account",
                     "description": "This is a simple savings account from chase bank",
                     "image_url": ""
+                }
+            ],
+            "departments" : [
+                {
+                    "id" : 1,
+                    "name" : "Unit Trust"
                 }
             ]
         }
