@@ -155,6 +155,21 @@ The Base URL is: http://chase360.herokuapp.com/
         "id": 1
     }
 
+### Feed
+
+You can get a feed of recent activity for a user
+
+#### Request
+    
+    The URL is GET {BASE_URL}/users/{id}/feed.json
+
+#### Response
+    
+    Returns a list of recently joined users for that company
+     
+    [{"id":2,"name":"Trevor","image_url":"http://localhost:3000"}]
+
+
 ### Retrieving Leads
 
 You can get a listing of all the leads currently saved

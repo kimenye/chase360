@@ -26,6 +26,17 @@ class UsersController < ApplicationController
 		end
 		render json: {users: users}
 	end
+
+	# GET /users/1/feed
+	def feed
+		@user = User.find(params[:id])
+		# get a feed of recent data
+		@new_users = User.where(company_id: @user.company_id).order(created_at: :desc).first(5)
+		@new_users.reject! { |u| u.id == @user.id }
+		# binding.pry
+
+	end
+
 	private
 		def user_params
 	      params.permit(:phone_number, :name, :email, :company_id, :department_id, :setup, :image)
