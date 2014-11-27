@@ -165,9 +165,19 @@ You can get a feed of recent activity for a user
 
 #### Response
     
-    Returns a list of recently joined users for that company
+    Returns a list of recently joined users(members) and leads assigned to that user
      
-    [{"id":2,"name":"Trevor","image_url":"http://localhost:3000"}]
+    {
+      "leads" : [],
+      "id" : 1,
+      "members" : [
+        {
+          "id" : 2,
+          "image_url" : "http://localhost:3000",
+          "name" : "Trevor"
+        }
+      ]
+    }
 
 
 ### Retrieving Leads

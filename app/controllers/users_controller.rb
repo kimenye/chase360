@@ -33,7 +33,8 @@ class UsersController < ApplicationController
 		# get a feed of recent data
 		@new_users = User.where(company_id: @user.company_id).order(created_at: :desc).first(5)
 		@new_users.reject! { |u| u.id == @user.id }
-		# binding.pry
+		
+		@assigned_leads = Lead.where(assigned_to_id: params[:id]).order(created_at: :desc).first(5)
 
 	end
 
