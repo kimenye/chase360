@@ -212,7 +212,7 @@ The following push notifications can be sent from the application
 
 #### Miles Received
 
-    This is sent whenever a user performs an action that earns them miles. The title of the notification is 
+This is sent whenever a user performs an action that earns them miles.
 
 ##### Title
 
