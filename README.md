@@ -226,7 +226,8 @@ This is sent whenever a user performs an action that earns them miles.
         "reason": "Installing 360 Me",
         "user_id": 3,
         "miles":30,
-        "total_miles": 30
+        "total_miles": 30,
+        "notification_type": "MilesAwarded"
     }
 
 #### Lead Assigned
@@ -250,6 +251,8 @@ This is sent whenever a user is assigned a lead
         "lead_name": "Trevor Kimenye",
         "lead_email": "send@gmail.com",
         "lead_phone_number": "254722200200",
-        "created_by_user_id": 2
+        "created_by_user_id": 2,
+        "created_by_user_name": "Super Referer",
+        "notification_type": "NewLead"
     } 
 

@@ -20,7 +20,8 @@ class Push
 			},
 			headers: {
 				"Content-type" => "application/json" 
-			})
+			},
+			debug_output: $stdout)
 		response.code == 200
 	end
 end

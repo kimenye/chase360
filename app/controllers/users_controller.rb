@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 			reason: "Installing 360 Me",
 			user_id: @user.id,
 			miles: 30,
-			total_miles: @user.points_available
+			total_miles: @user.points_available,
+			notification_type: "MilesAwarded"
 		}
 
 		render json: { id: params[:id].to_i, status: "success"}
