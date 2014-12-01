@@ -10,8 +10,17 @@ class UsersController < ApplicationController
 		params[:setup] = true
 		@user = User.find(params[:id])
 		@user.update user_params
-		# @user.setup = true
-		# @user.save!
+
+		points = ChasePoint.create! user: @user, action: "Installation", amount: 30, redeemed: false
+		@user.reload
+
+		Push.send @user.email, "You have been awarded 30 Miles.", {
+			reason: "Installing 360 Me",
+			user_id: @user.id,
+			miles: 30,
+			total_miles: @user.points_available
+		}
+
 		render json: { id: params[:id].to_i, status: "success"}
 	
 	end

@@ -20,6 +20,7 @@ module Chase360
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     
+    config.autoload_paths << Rails.root.join('lib')
     config.assets.initialize_on_precompile = false
     config.assets.precompile += %w[active_admin.css.scss active_admin.js]
     

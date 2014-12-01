@@ -224,9 +224,32 @@ This is sent whenever a user performs an action that earns them miles.
 
     {   
         "reason": "Installing 360 Me",
-        "user_id":"3",
+        "user_id": 3,
         "miles":30,
         "total_miles": 30
     }
 
+#### Lead Assigned
+
+This is sent whenever a user is assigned a lead
+
+##### Title
+    
+    ```
+        You have been assigned a lead.
+    ```
+
+##### Json
+    
+    {
+        "reason": "",
+        "user_id": 1,
+        "lead_id": 1,
+        "company_id", 2,
+        "product_id", 3,
+        "lead_name": "Trevor Kimenye",
+        "lead_email": "send@gmail.com",
+        "lead_phone_number": "254722200200",
+        "created_by_user_id": 2
+    } 
 
