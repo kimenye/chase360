@@ -205,3 +205,28 @@ You can get a listing of all the leads currently saved
             "phone_number" : "2541234567890"
         }
     ]
+
+### Push Notifications
+
+The following push notifications can be sent from the application
+
+#### Miles Received
+
+    This is sent whenever a user performs an action that earns them miles. The title of the notification is 
+
+##### Title
+
+    ```
+        You have been awarded 30 Miles.
+    ```
+
+##### Json
+
+    {   
+        "reason": "Installing 360 Me",
+        "user_id":"3",
+        "miles":30,
+        "total_miles": 30
+    }
+
+
