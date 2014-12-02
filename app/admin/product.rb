@@ -59,6 +59,12 @@ ActiveAdmin.register Product do
       
       if Product.find_by(company: company, name: product_name).nil?
         Product.create! company: company, name: product_name, description: description, category: category
+      else
+        product = Product.find_by(company: company, name: product_name)
+        if product.category.nil? && !category.nil?
+          product.category = category
+          product.save!
+        end
       end
     end
   end
