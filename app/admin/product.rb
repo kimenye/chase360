@@ -46,8 +46,20 @@ ActiveAdmin.register Product do
         
     main_sheet = doc.sheets.first
     main_sheet.rows[1..main_sheet.rows.length].each do |row|
+      company_name = row[0]
+      category_name = row[1]
+      product_name = row[2]
+      description = row[3]
       company = Company.find_by(name: row[0])
-      Product.create! company: company, name: row[1], description: row[2]
+
+
+      if !category_name.nil?
+        category = Category.find_or_create_by(company_id: company.id, name: category_name)
+      end
+      
+      if Product.find_by(company: company, name: product_name).nil?
+        Product.create! company: company, name: product_name, description: description, category: category
+      end
     end
   end
   
