@@ -1,5 +1,6 @@
 ActiveAdmin.register Lead do
 
+  config.sort_order = "created_at_desc"
   scope :open
   scope :verified
   scope :closed
