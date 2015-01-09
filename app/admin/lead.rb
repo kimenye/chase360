@@ -65,7 +65,7 @@ ActiveAdmin.register Lead do
     end
   end
 
-  permit_params :name, :phone_number, :email, :status, :submitted_by_id, :assigned_to_id, :product_id, :branch_id, :verified_by_id, :value
+  permit_params :name, :phone_number, :email, :status, :submitted_by_id, :assigned_to_id, :product_id, :branch_id, :verified_by_id, :value, :note
 
   index do
     column :id

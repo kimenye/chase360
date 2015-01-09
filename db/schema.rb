@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126095401) do
+ActiveRecord::Schema.define(version: 20150109102554) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20141126095401) do
     t.boolean  "verified"
     t.decimal  "value"
     t.integer  "verified_by_id"
+    t.text     "note"
   end
 
   add_index "leads", ["assigned_to_id"], name: "index_leads_on_assigned_to_id"

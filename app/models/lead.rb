@@ -16,6 +16,7 @@
 #  verified        :boolean
 #  value           :decimal(, )
 #  verified_by_id  :integer
+#  note            :text
 #
 
 class Lead < ActiveRecord::Base
