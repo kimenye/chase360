@@ -67,7 +67,7 @@ class Lead < ActiveRecord::Base
 				self.assigned_to_id = user.id
 				save!
 				LeadMailer.assigned_notification(user,self).deliver
-				Push.send self.user.email, "You have been assigned a lead",
+				Push.send user.email, "You have been assigned a lead",
 					{
 					    reason: "Lead Assinged",
 					    notification_type: "LeadAssigned",
