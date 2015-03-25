@@ -1,7 +1,23 @@
 require "test_helper"
 
 class LeadFlowsTest < ActionDispatch::IntegrationTest
-  def test_that_a_user_can_login_and_submit_a_lead    
+  def test_that_a_user_can_login_and_submit_a_lead 
+    Lead.delete_all
+    stub_request(:post, "https://mativo:MAPP2014@pushapi.infobip.com/3/application/0a7535fbb603/message").
+            with(:body => "{\"sentType\":\"userIDs\",\"mimeType\":\"text/plain\",\"OSTypes\":[\"Android\"],\"notificationMessage\":\"You have been awarded 30 Miles.\",\"androidData\":{\"title\":\"You have been awarded 30 Miles.\"},\"additionalInfo\":{\"reason\":\"Installing 360 Me\",\"user_id\":408993661,\"miles\":30,\"total_miles\":30,\"notification_type\":\"MilesAwarded\"},\"userIDs\":[\"test@chasebank.co.ke\"]}",
+                 :headers => {'Content-Type'=>'application/json'}).
+            to_return(:status => 200, :body => "", :headers => {})
+
+    stub_request(:post, "https://mativo:MAPP2014@pushapi.infobip.com/3/application/0a7535fbb603/message").
+            with(:body => "{\"sentType\":\"userIDs\",\"mimeType\":\"text/plain\",\"OSTypes\":[\"Android\"],\"notificationMessage\":\"You have been assigned a lead\",\"androidData\":{\"title\":\"You have been assigned a lead\"},\"additionalInfo\":{\"reason\":\"Lead Assinged\",\"notification_type\":\"LeadAssigned\",\"user_id\":207107842,\"lead_id\":980190963,\"company_id\":207107842,\"product_id\":604942157,\"lead_name\":\"Muaad\",\"lead_email\":\"sdfsd@gmail.com\",\"lead_phone_number\":\"2123456789\",\"created_by_user_id\":408993661,\"created_by_user_name\":\"Muaad\"},\"userIDs\":[\"sales@chaseassurance.com\"]}",
+                 :headers => {'Content-Type'=>'application/json'}).
+            to_return(:status => 200, :body => "", :headers => {})
+
+    stub_request(:post, "https://mativo:MAPP2014@pushapi.infobip.com/3/application/0a7535fbb603/message").
+            with(:body => "{\"sentType\":\"userIDs\",\"mimeType\":\"text/plain\",\"OSTypes\":[\"Android\"],\"notificationMessage\":\"You have been assigned a lead\",\"androidData\":{\"title\":\"You have been assigned a lead\"},\"additionalInfo\":{\"reason\":\"Lead Assinged\",\"notification_type\":\"LeadAssigned\",\"user_id\":781613748,\"lead_id\":980190963,\"company_id\":207107842,\"product_id\":604942157,\"lead_name\":\"Muaad\",\"lead_email\":\"sdfsd@gmail.com\",\"lead_phone_number\":\"2123456789\",\"created_by_user_id\":408993661,\"created_by_user_name\":\"Muaad\"},\"userIDs\":[\"sales@chaseassurance.com\"]}",
+                 :headers => {'Content-Type'=>'application/json'}).
+            to_return(:status => 200, :body => "", :headers => {})
+
     # Verify that the user is authorized to log in
     post "/verify", { email: users(:bank).email }
     
@@ -15,11 +31,11 @@ class LeadFlowsTest < ActionDispatch::IntegrationTest
 
 
     # Update the user profile
-    post "/users/#{users(:bank).id}", { name: "Muaad", phone_number: "254722654456", company_id: companies(:bank).id, department: "Marketing" }
+    post "/users/#{users(:bank).id}", { name: "Muaad", phone_number: "254722654456", company_id: companies(:bank).id, department_id: departments(:one).id }
     assert_response :success
 
     points_before = users(:bank).points_available
-    assert 0 == points_before
+    assert 30 == points_before
 
     # Create a lead
     post "/leads", { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:bank).id, product_id: products(:insurance).id, branch_id: branches(:ca_hq).id}

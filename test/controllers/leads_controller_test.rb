@@ -20,10 +20,10 @@ class LeadsControllerTest < ActionController::TestCase
     assert Lead.where(submitted_by_id: users(:bank).id).count == JSON(response.body).count
   end
 
-  def test_a_lead_id_is_returned_if_the_lead_is_successfully_saved  	
+  def test_a_lead_id_is_returned_if_the_lead_is_successfully_saved
+    Lead.delete_all  	
   	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id}
   	assert_response :success
-
   	id = JSON(response.body)['id']
   	assert_equal id, Lead.last.id
 

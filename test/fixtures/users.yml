@@ -45,9 +45,3 @@ chase_assurance_ro:
   role: ro
   company: chase_assurance
   name: Cynthia
-
-chase_assurance:
-  email: sales@chaseassurance.com
-  role: ro
-  company: chase_assurance
-  name: Anyango
