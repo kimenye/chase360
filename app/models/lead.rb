@@ -36,9 +36,9 @@ class Lead < ActiveRecord::Base
 	after_create :assign_chase_points	
 	after_create :assign_lead
 
-	scope :open, where(:status => "New")	
-	scope :closed, where(:status => "Closed")	
-	scope :verified, where(:status => "Verified")	
+	scope :open, -> { where(status: 'New') }
+	scope :closed, -> { where(status: 'Closed') }
+	scope :verified, -> { where(status: 'Verified') }
 	scope :all, order("created_at DESC")
 	default_scope all
 
