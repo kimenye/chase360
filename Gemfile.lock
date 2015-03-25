@@ -80,6 +80,8 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     columnize (0.8.9)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     database_cleaner (1.2.0)
     debugger (1.6.6)
       columnize (>= 0.3.1)
@@ -283,6 +285,7 @@ GEM
       railties (>= 3.2, < 5)
     ruby-prof (0.14.2)
     rubyzip (1.1.4)
+    safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -327,6 +330,9 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    webmock (1.20.4)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -373,3 +379,4 @@ DEPENDENCIES
   sqlite3
   turn
   uglifier (>= 1.3.0)
+  webmock

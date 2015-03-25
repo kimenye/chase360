@@ -76,6 +76,7 @@ group :test, :development do
   gem 'sqlite3'
   gem 'pry'
   gem 'pry-nav'
+  gem 'webmock'
 end
 
 group :production do
