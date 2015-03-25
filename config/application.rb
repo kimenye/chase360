@@ -23,6 +23,7 @@ module Chase360
     config.autoload_paths << Rails.root.join('lib')
     config.assets.initialize_on_precompile = false
     config.assets.precompile += %w[active_admin.css.scss active_admin.js]
+    config.i18n.enforce_available_locales = false
     
     config.action_mailer.smtp_settings = {
           :address   => "smtp.mandrillapp.com",
