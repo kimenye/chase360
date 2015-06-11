@@ -18,7 +18,6 @@ ActiveAdmin.register Category do
     column :id
     column :name
     column :company
-    # default_actions
   end
 
   permit_params :name, :company_id

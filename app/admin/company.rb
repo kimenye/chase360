@@ -24,7 +24,6 @@ ActiveAdmin.register Company do
     column :name
     column :description
     column :image
-    # default_actions
   end
   
   permit_params :name, :description, :image
