@@ -1,6 +1,16 @@
-.row
-	.large-4.large-centered.columns
-		= image_tag "Chase-360-Logo.jpg"
-.row.login
-	.large-4.large-centered.columns
-		%a.link{href: "/admin"}
+.splash
+  .row
+    .large-4.large-centered.columns
+      = image_tag "logo.png", class: 'logo'
+      .tagline
+        Everyone Knows Someone
+
+  .row.login
+    .large-4.large-centered.columns
+      %h2 Welcome, Please sign in.
+      %hr 
+
+      %h4 Login using your Chase Group
+      %h4 Google Apps username and password
+
+      %a.link{href: "/admin"}

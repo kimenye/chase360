@@ -1,13 +1,53 @@
+$red: #c84624;
+$light-blue: #60a0c1;
+
 .home.index {
 	padding: 3rem;
 
-	.login {
-		.link {
+	.splash {
+		// background: rgba(255,255,255,.9) asset-url('splash.png', image) no-repeat center bottom;
+		// padding-top: 10rem;
+		// height: 600px;
+		text-align: center;
+
+		.logo {
 			display: block;
-			background: rgba(255,255,255,.8) asset-url("login.png", image) no-repeat 50% 50%;
-			width: 150px;
-			height: 46px;
 			margin: auto;
+		} 
+
+		.tagline {
+			text-transform: uppercase;
+			margin-top: 1rem;		
+			color: rgba(0,0,0,0.6);
+			font-size: 0.95rem;
 		}
-	} 
+
+		.login {
+			margin-top: 3rem;
+
+			h2 {
+				color: $red;				
+				margin-bottom: 0.5rem;
+				font-weight: 100;
+			}
+
+			hr {
+				margin: 0.5rem 0 5rem;
+				border-color: $red;
+			}
+
+			h4 {
+				color: $light-blue;
+				margin-bottom: 0.75em;
+			}
+
+			.link {
+				display: block;
+				background: rgba(255,255,255,.8) asset-url("login.png", image) no-repeat 50% 50%;
+				width: 150px;
+				height: 46px;
+				margin: auto;
+			}
+		}
+	}
 }
