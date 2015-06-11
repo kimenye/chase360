@@ -25,7 +25,7 @@
       - @products.each do |product|
         .product
           %a.logo{ href: "#{new_lead_path}?product_id=#{product.id}" }
-            = image_tag product.image_url
+            = image_tag product.image.try(:url)
           .description
             %h3
               = product.name
