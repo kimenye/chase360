@@ -1,0 +1,21 @@
+.topbar
+  .company
+    .row.company-name
+      .large-12.columns
+        .name
+          = Company.from_email_address(@user.email)
+    .row.user-top-menu
+      .large-12.columns
+        .profile-name
+          Edit My Profile
+
+.details
+  = form_for(@user) do |f|
+    .row
+      .small-12.columns
+        = f.label :name
+        = f.text_field :name
+    .row
+      .small-12.columns
+        = f.label :company
+        = f.select :company, Company.all
