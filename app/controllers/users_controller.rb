@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		# TODO
 		params[:setup] = true
 		@user = User.find(params[:id])
 		@user.update user_params
@@ -18,15 +17,20 @@ class UsersController < ApplicationController
 		points = ChasePoint.create! user: @user, action: "Installation", amount: 30, redeemed: false
 		@user.reload
 
-		Push.send @user.email, "You have been awarded 30 Miles.", {
-			reason: "Installing 360 Me",
-			user_id: @user.id,
-			miles: 30,
-			total_miles: @user.points_available,
-			notification_type: "MilesAwarded"
-		}
+		if Rails.env.production?
+			Push.send @user.email, "You have been awarded 30 Miles.", {
+				reason: "Installing 360 Me",
+				user_id: @user.id,
+				miles: 30,
+				total_miles: @user.points_available,
+				notification_type: "MilesAwarded"
+			}
+		end
 
-		render json: { id: params[:id].to_i, status: "success"}
+		respond_to do |format| 
+			format.json { render json: { id: params[:id].to_i, status: "success"} }
+			format.html { redirect_to @user, notice: 'Profile updated.' }
+		end
 	
 	end
 

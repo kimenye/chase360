@@ -14,8 +14,19 @@
     .row
       .small-12.columns
         = f.label :name
-        = f.text_field :name
+        = f.text_field :name, { name: 'name', id: 'name' }
     .row
       .small-12.columns
         = f.label :company
-        = f.select :company, Company.all
+        = f.select :company_id, Company.all.collect { |c| [ c.name, c.id ] }, {}, { name: 'company_id' }
+    .row
+      .small-12.columns
+        = f.label :department
+        = f.select :department_id, Department.all.collect { |d| [d.name, d.id] }, {}, { name: 'department_id' }
+    .row
+      .small-12.columns
+        = f.label :image
+        %input{ type: 'file', name: 'image' }
+    .row
+      .small-12.columns
+        = f.submit 'Save', class: 'button'

@@ -43,6 +43,7 @@ $light-grey: #cecece;
         margin: 3rem auto 1.5rem;
         display: block;
         width: 30%;
+        border-radius: 50em;
       }
     }
 
@@ -70,7 +71,7 @@ $light-grey: #cecece;
         color: #fff;
         text-align: center;
         padding: 0.75rem;
-        margin-bottom: 0.15rem;
+        margin-bottom: 0.25rem;
         text-decoration: none;
       }
     }
@@ -78,5 +79,10 @@ $light-grey: #cecece;
 
   .details {
     margin-top: 1.5rem;
+
+    .button {
+      background-color: $dark-blue;
+      padding: 0.75rem 2rem .75rem 2rem;
+    }
   }
 }
