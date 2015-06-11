@@ -4,7 +4,7 @@ ActiveAdmin.register Role do
 
   index do
   	column :name
-  	default_actions
+  	# default_actions
   end
   
 end

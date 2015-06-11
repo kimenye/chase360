@@ -6,6 +6,6 @@ ActiveAdmin.register Department do
     column :id
     column :company
     column :name
-    default_actions
+    # default_actions
   end  
 end

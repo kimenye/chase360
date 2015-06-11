@@ -25,7 +25,7 @@ ActiveAdmin.register User do
     column :department
     column :points_available
     column :setup
-    default_actions
+    # default_actions
   end
 
   show do |u|

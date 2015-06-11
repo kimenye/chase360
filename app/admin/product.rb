@@ -34,7 +34,7 @@ ActiveAdmin.register Product do
     column :description
     column :image
     column :active
-    default_actions
+    # default_actions
   end
   
   permit_params :name, :description, :image, :company_id, :category_id, :active
