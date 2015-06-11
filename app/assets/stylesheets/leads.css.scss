@@ -1,7 +1,8 @@
 $border-grey-color: #dddddd; 
 
 .leads {
-  .company {
+  .company,
+  .product {
     
     .logo,
     .description {
@@ -32,12 +33,13 @@ $border-grey-color: #dddddd;
 
       h3 {
         color: #43494c;
-        // font-size: 90%;
+        font-size: 90%;
       }
 
       .body {
         height: 125px;
         overflow: hidden;
+        font-size: 85%;
       }      
     }
 

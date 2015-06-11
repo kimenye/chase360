@@ -3,6 +3,9 @@ class LeadsController < ApplicationController
 
 	def new
 		@lead = Lead.new
+		if params.has_key?(:company_id)
+			@products = Product.where(company_id: params[:company_id])
+		end
 	end
 
 	def index

@@ -8,14 +8,26 @@
       .large-12.columns
         .profile-name
           New Lead
-.details
-  .companies    
-    - Company.all.each do |company|
-      .company{ class: cycle('odd', 'even') }
-        .logo
-          = image_tag company.image.url
-        .description
-          %h3
-            = company.name
-          .body
-            = company.description
+.details  
+  - if @products.nil?
+    .companies    
+      - Company.all.each do |company|
+        .company{ class: cycle('odd', 'even') }
+          %a.logo{ href: "#{new_lead_path}?company_id=#{company.id}" }
+            = image_tag company.image.url
+          .description
+            %h3
+              = company.name
+            .body
+              = company.description
+  - else
+    .products
+      - @products.each do |product|
+        .product
+          %a.logo{ href: "#{new_lead_path}?product_id=#{product.id}" }
+            = image_tag product.image_url
+          .description
+            %h3
+              = product.name
+            .body
+              = product.description
