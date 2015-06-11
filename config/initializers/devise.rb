@@ -242,7 +242,7 @@ Devise.setup do |config|
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
 
-  config.omniauth :google_oauth2, ENV["APP_ID"], ENV["APP_SECRET"], { access_type: "offline", approval_prompt: "" }
+  config.omniauth :google_oauth2, ENV["google_client_id"], ENV["google_client_secret"], {}
 
 
   # ==> Mountable engine configurations

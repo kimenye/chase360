@@ -16,4 +16,7 @@ Chase360::Application.routes.draw do
   root to: "home#index"
 
   resources :companies, :leads, :users, :departments
+
+  # devise_for :users, :controllers => { :omniauth_callbacks => "auth/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } 
 end

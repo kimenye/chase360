@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 
-
-
 gem 'sass-rails', '~> 5.0'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -68,9 +66,12 @@ group :test do
   # To use debugger
   gem 'debugger'
   gem 'sqlite3'
+  gem 'webmock'
+end
+
+group :development do
   gem 'pry'
   gem 'pry-nav'
-  gem 'webmock'
 end
 
 group :production do
