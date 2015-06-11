@@ -39,8 +39,8 @@ class Lead < ActiveRecord::Base
 	scope :open, -> { where(status: 'New') }
 	scope :closed, -> { where(status: 'Closed') }
 	scope :verified, -> { where(status: 'Verified') }
-	scope :all, order("created_at DESC")
-	default_scope all
+	# scope :all, -> { order("created_at DESC") }
+	# default_scope all
 
 
 	def company
