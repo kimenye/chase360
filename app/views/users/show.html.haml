@@ -9,4 +9,26 @@
     .row.user-top-menu
       .large-12.columns
         .profile-name
+          My Profile
+
+.profile
+  .row
+    .large-12.columns
+      .picture
+        - if @user.image_url.empty?
+          = image_tag 'avatar-empty.png'
+        - else
+          = image_tag @user.image_url
+      .name
+        %h1
           = @user.name
+      .position
+        %h2
+          = @user.company.nil? ? "Company" : @user.company.name 
+          |
+          = @user.department.nil? ? "Department" : @user.department.name
+  .actions
+    .row
+      .small-6.small-centered.columns
+        %a{ href: edit_user_path(@user) } Edit Profile
+        %a{ href: new_lead_path } Add Lead
