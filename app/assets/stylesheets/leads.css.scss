@@ -1,0 +1,50 @@
+$border-grey-color: #dddddd; 
+
+.leads {
+  .company {
+    
+    .logo,
+    .description {
+      width: 50%;
+      padding: 1rem 1.5rem;
+      border-left: 1px solid $border-grey-color;
+      border-bottom: 1px solid $border-grey-color;
+      height: 200px;
+    }
+
+    .logo {
+      float: left;
+      img {
+        width: 300px;
+      }      
+    }
+
+    &.even {    
+      .logo {
+        float: right;  
+      }
+    }
+
+    .description {
+      float: right;
+      background-color: #eeeeee;
+      
+
+      h3 {
+        color: #43494c;
+        // font-size: 90%;
+      }
+
+      .body {
+        height: 125px;
+        overflow: hidden;
+      }      
+    }
+
+    &.odd {
+      .description {
+        float: left;
+      }
+    }
+  }
+}

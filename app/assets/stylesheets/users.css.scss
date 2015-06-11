@@ -3,40 +3,6 @@ $light-blue: #3f9dd9;
 $light-grey: #cecece;
 
 .users {
-  .topbar {
-    background-color: $dark-blue;
-    line-height: 2.8125rem;
-    .company {
-      
-      .company-name, 
-      .user-top-menu {
-        border-bottom: 1px solid #fff;
-        height: 2.8125rem;
-      }
-
-      .name {
-        text-align: right;                
-        text-transform: uppercase;
-        background: asset-url('logo-tiny.png') no-repeat right center;
-        margin-right: 0.25rem;
-        padding-right: 2.5rem;
-      }
-
-      .name,
-      .profile-name {        
-        font-size: .9rem;
-        font-weight: 200;
-        color: #fff;
-      }
-
-      .profile-name {
-        text-align: center;
-        font-weight: normal;
-        font-size: 1rem;
-      }
-    }
-  }
-
   .profile {
     .picture {
       img {

@@ -1,6 +1,10 @@
 class LeadsController < ApplicationController
 	respond_to :json
 
+	def new
+		@lead = Lead.new
+	end
+
 	def index
 		if params[:submitted_by_id].present?
 			@leads = Lead.where(submitted_by_id: params[:submitted_by_id])

@@ -1,0 +1,21 @@
+.topbar
+  .company
+    .row.company-name
+      .large-12.columns
+        .name
+          / = Company.from_email_address(current_user.email)
+    .row.user-top-menu
+      .large-12.columns
+        .profile-name
+          New Lead
+.details
+  .companies    
+    - Company.all.each do |company|
+      .company{ class: cycle('odd', 'even') }
+        .logo
+          = image_tag company.image.url
+        .description
+          %h3
+            = company.name
+          .body
+            = company.description

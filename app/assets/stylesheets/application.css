@@ -13,4 +13,6 @@
 
  *= require home
  *= require users
+ *= require common
+ *= require leads
  */
