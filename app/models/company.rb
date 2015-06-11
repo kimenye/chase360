@@ -29,4 +29,15 @@ class Company < ActiveRecord::Base
   def image_url
     "#{ENV["host"]}#{image.try(:url)}"
   end
+
+  def self.from_email_address email
+    domain = email.split("@").last
+    name = "Chase Assurance"
+
+    if domain == "chasebank.com"
+      name = "Chase Bank"
+    end
+
+    name
+  end
 end
