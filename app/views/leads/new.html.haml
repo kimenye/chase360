@@ -1,13 +1,15 @@
 .topbar
-  .company
-    / .row.company-name
-    /   .large-12.columns
-    /     .name
-    /       = Company.from_email_address(current_user.email)
-    .row.user-top-menu
-      .large-12.columns
-        .profile-name
-          New Lead
+  - if @products.nil?
+    .company
+      .row.user-top-menu
+        .large-12.columns
+          .profile-name.tiny-icon
+            %a.back
+            Select Company
+.sub-bar
+  .row
+    .large-12.columns
+      Scroll Up or Down
 .details  
   - if @products.nil?
     .companies    

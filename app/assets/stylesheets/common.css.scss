@@ -3,6 +3,16 @@ $dark-blue: #1e4a9a;
 .topbar {
   background-color: $dark-blue;
   line-height: 2.8125rem;
+
+  .back {
+    background: asset-url('back.png') no-repeat center center;
+    display: inline-block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 0;
+    top: 15%;
+  }
   .company {
     
     .company-name, 
@@ -13,10 +23,12 @@ $dark-blue: #1e4a9a;
 
     .name {
       text-align: right;                
-      text-transform: uppercase;
+      text-transform: uppercase;      
+    }
+
+    .tiny-icon {
       background: asset-url('logo-tiny.png') no-repeat right center;
-      margin-right: 0.25rem;
-      padding-right: 2.5rem;
+      position: relative;
     }
 
     .name,
@@ -32,4 +44,10 @@ $dark-blue: #1e4a9a;
       font-size: 1rem;
     }
   }
+}
+
+.sub-bar {
+  line-height: 2.8125rem;
+  text-align: center;
+  color: $dark-blue;  
 }

@@ -1,5 +1,9 @@
 $border-grey-color: #dddddd; 
 
+.sub-bar {
+  border-bottom: 1px solid $border-grey-color;
+}
+
 .leads {
   .company,
   .product {
@@ -16,7 +20,9 @@ $border-grey-color: #dddddd;
     .logo {
       float: left;
       img {
-        width: 300px;
+        max-width: 100%;
+        margin: auto;
+        display: block;
       }      
     }
 
