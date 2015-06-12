@@ -29,6 +29,6 @@
           = @user.department.nil? ? "Department" : @user.department.name
   .actions
     .row
-      .small-6.small-centered.columns
+      .small-8.small-centered.columns
         %a{ href: edit_user_path(@user) } Edit Profile
         %a{ href: new_lead_path } Add Lead
