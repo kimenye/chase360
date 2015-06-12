@@ -1,9 +1,9 @@
 .topbar
   .company
-    .row.company-name
-      .large-12.columns
-        .name
-          / = Company.from_email_address(current_user.email)
+    / .row.company-name
+    /   .large-12.columns
+    /     .name
+    /       = Company.from_email_address(current_user.email)
     .row.user-top-menu
       .large-12.columns
         .profile-name
@@ -25,7 +25,8 @@
       - @products.each do |product|
         .product
           %a.logo{ href: "#{new_lead_path}?product_id=#{product.id}" }
-            = image_tag product.image.try(:url)
+            - if !product.image.nil?
+              = image_tag product.image.url
           .description
             %h3
               = product.name
