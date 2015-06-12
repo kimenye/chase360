@@ -2,13 +2,13 @@
   .company
     .row.company-name
       .large-12.columns
-        .name
+        .name.tiny-icon
           = Company.from_email_address(@user.email)
     .row.user-top-menu
       .large-12.columns
         .profile-name
           My Profile
-
+= render "home/notice"
 .profile
   .row
     .large-12.columns

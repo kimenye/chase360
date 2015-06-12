@@ -65,22 +65,24 @@ class Lead < ActiveRecord::Base
 			if !users.empty?
 				user = users.sample
 				self.assigned_to_id = user.id
-				save!
+				save!				
 				LeadMailer.assigned_notification(user,self).deliver
-				Push.send user.email, "You have been assigned a lead",
-					{
-					    reason: "Lead Assinged",
-					    notification_type: "LeadAssigned",
-					    user_id: self.assigned_to_id,
-					    lead_id: self.id,
-					    company_id: self.product.company.id,
-					    product_id: self.product.id,
-					    lead_name: self.name,
-					    lead_email: self.email,
-					    lead_phone_number: self.phone_number,
-					    created_by_user_id: self.submitted_by_id,
-					    created_by_user_name: self.submitted_by.name
-					}				
+				if Rails.env.production?
+					Push.send user.email, "You have been assigned a lead",
+						{
+						    reason: "Lead Assinged",
+						    notification_type: "LeadAssigned",
+						    user_id: self.assigned_to_id,
+						    lead_id: self.id,
+						    company_id: self.product.company.id,
+						    product_id: self.product.id,
+						    lead_name: self.name,
+						    lead_email: self.email,
+						    lead_phone_number: self.phone_number,
+						    created_by_user_id: self.submitted_by_id,
+						    created_by_user_name: self.submitted_by.name
+						}
+				end				
 			end
 		end
 end

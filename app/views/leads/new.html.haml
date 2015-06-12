@@ -1,17 +1,22 @@
-.topbar
-  - if @products.nil?
-    .company
-      .row.user-top-menu
-        .large-12.columns
-          .profile-name.tiny-icon
-            %a.back
+.topbar  
+  .company
+    .row.user-top-menu
+      .large-12.columns
+        .profile-name.tiny-icon
+          %a.back
+          - if select_company?
             Select Company
-.sub-bar
-  .row
-    .large-12.columns
-      Scroll Up or Down
+          - elsif select_product?
+            Select Product
+          - else
+            Enter Contact 
+- if !enter_contact?
+  .sub-bar
+    .row
+      .large-12.columns
+        Scroll Up or Down
 .details  
-  - if @products.nil?
+  - if select_company?
     .companies    
       - Company.all.each do |company|
         .company{ class: cycle('odd', 'even') }
@@ -22,7 +27,7 @@
               = company.name
             .body
               = company.description
-  - else
+  - elsif select_product?
     .products
       - @products.each do |product|
         .product
@@ -34,3 +39,35 @@
               = product.name
             .body
               = product.description
+  - else
+    .contacts
+      = form_for(@lead) do |f|
+        .row
+          .small-12.columns
+            = f.label :company
+            %input{ type: 'text', value: @product.company.name, disabled: true }
+        .row
+          .small-12.columns
+            = f.label :product
+            %input{ type: 'text', value: @product.name, disabled: true }
+        .row
+          .small-12.columns
+            = f.label :name
+            %input{ type: 'text', name: 'name', placeholder: 'Anabel Citizen', required: true }
+        .row
+          .small-12.columns
+            = f.label :email
+            %input{ type: 'email', name: 'email', placeholder: 'me@domain.com', required: true }
+        .row
+          .small-12.columns
+            = f.label :phone_number
+            %input{ type: 'text', name: 'phone_number', placeholder: '+254722200200', required: true }
+        .row
+          .small-12.columns
+            = f.label :comments
+            %textarea{ name: 'note' }
+        .row
+          .small-12.columns
+            %input{ type: 'hidden', name: 'product_id', value: @product.id }
+            %input{ type: 'hidden', name: 'submitted_by_id', value: current_user.id }
+            = f.submit 'Submit', class: 'button'

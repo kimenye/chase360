@@ -5,6 +5,9 @@ class LeadsController < ApplicationController
 		@lead = Lead.new
 		if params.has_key?(:company_id)
 			@products = Product.where(company_id: params[:company_id])
+		elsif params.has_key?(:product_id)
+			@product = Product.find(params[:product_id])
+			@lead.product_id = params[:product_id]
 		end
 	end
 
@@ -28,7 +31,10 @@ class LeadsController < ApplicationController
 				Note.create! message: params[:message], user_id: params[:submitted_by_id], lead: @lead
 			end
 
-			render json: { id: @lead.id }		
+			respond_to do |format| 
+				format.json { render json: { id: @lead.id } }
+				format.html { redirect_to current_user, notice: 'Lead submitted.' }
+			end
 		else
 			render json: {message: "Please check either your name, email address or phone_number or submitted_by_id" }, status: :unprocessable_entity
 		end
@@ -45,6 +51,6 @@ class LeadsController < ApplicationController
 
 	private
 		def lead_params
-	      params.permit(:phone_number, :name, :email, :submitted_by_id, :product_id, :branch_id, :note)
-	    end
+      params.permit(:phone_number, :name, :email, :submitted_by_id, :product_id, :branch_id, :note)
+    end
 end
