@@ -25,6 +25,10 @@ class Company < ActiveRecord::Base
   def as_json *args
     super(except: [:image_uid, :created_at, :updated_at]).merge({'image_url' => image_url})
   end
+
+  def has_branches?
+    !branches.empty?
+  end
   
   def image_url
     "#{ENV["host"]}#{image.try(:url)}"

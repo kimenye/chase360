@@ -50,6 +50,13 @@
           .small-12.columns
             = f.label :product
             %input{ type: 'text', value: @product.name, disabled: true }
+        - @product.company.has_branches?
+          .small-12.columns
+            = f.label :branch
+            %select{ name: 'branch_id' }
+              - @product.company.branches.each do |branch|
+                %option{ value: branch.id } 
+                  = branch.name
         .row
           .small-12.columns
             = f.label :name
