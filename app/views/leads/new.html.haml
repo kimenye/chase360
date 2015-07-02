@@ -50,7 +50,7 @@
           .small-12.columns
             = f.label :product
             %input{ type: 'text', value: @product.name, disabled: true }
-        - @product.company.has_branches?
+        - if @product.company.has_branches?
           .small-12.columns
             = f.label :branch
             %select{ name: 'branch_id' }
