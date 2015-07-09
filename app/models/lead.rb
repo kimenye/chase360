@@ -66,7 +66,7 @@ class Lead < ActiveRecord::Base
 				user = users.sample
 				self.assigned_to_id = user.id
 				save!				
-				LeadMailer.assigned_notification(user,self).deliver
+				LeadMailer.assigned_notification(user,self).deliver_now
 				if Rails.env.production?
 					Push.send user.email, "You have been assigned a lead",
 						{
