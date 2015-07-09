@@ -17,6 +17,7 @@
 #  name          :string(255)
 #  image_uid     :string(255)
 #  department_id :integer
+#  branch_id     :integer
 #
 
 # Read about fixtures at

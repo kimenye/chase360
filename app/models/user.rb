@@ -17,12 +17,14 @@
 #  name          :string(255)
 #  image_uid     :string(255)
 #  department_id :integer
+#  branch_id     :integer
 #
 
 class User < ActiveRecord::Base
   belongs_to :role
   belongs_to :company
   belongs_to :department
+  belongs_to :branch
   devise :omniauthable
   has_many :chase_points
 
