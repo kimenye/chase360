@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
   def role_name
-    role.name
+    role.try(:name)
   end
 
   def points_available
