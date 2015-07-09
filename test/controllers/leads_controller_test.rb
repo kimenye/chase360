@@ -22,7 +22,7 @@ class LeadsControllerTest < ActionController::TestCase
 
   def test_a_lead_id_is_returned_if_the_lead_is_successfully_saved
     Lead.delete_all  	
-  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id}
+  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id, format: 'json'}
   	assert_response :success
   	id = JSON(response.body)['id']
   	assert_equal id, Lead.last.id
@@ -36,13 +36,13 @@ class LeadsControllerTest < ActionController::TestCase
   end
 
   def test_that_a_lead_is_submitted_by_a_user
-  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id }
+  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id, format: 'json' }
   	assert_response :success
   end
 
   def test_that_a_leads_status_is_set_to_new_when_it_is_submitted
     Lead.delete_all
-    post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id }
+    post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id, format: 'json' }
     assert_response :success
     
 
@@ -52,7 +52,7 @@ class LeadsControllerTest < ActionController::TestCase
 
   def test_that_a_leads_assigned_to_a_user_that_was_passed_in
     Lead.delete_all
-  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, assigned_to_id: users(:chase_assurance_ro).id, product_id: products(:one).id, branch_id: branches(:one).id }
+  	post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, assigned_to_id: users(:chase_assurance_ro).id, product_id: products(:one).id, branch_id: branches(:one).id, format: 'json' }
   	assert_response :success
     
 
@@ -61,7 +61,7 @@ class LeadsControllerTest < ActionController::TestCase
   end
 
   def test_that_a_note_is_saved_when_passed_in_during_lead_creation
-    post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id, message: "this guy is cool" }
+    post :create, { name: "Muaad", phone_number: "2123456789", email: "sdfsd@gmail.com", submitted_by_id: users(:one).id, product_id: products(:one).id, branch_id: branches(:one).id, message: "this guy is cool", format: 'json' }
     assert_response :success
 
     note = Note.last    

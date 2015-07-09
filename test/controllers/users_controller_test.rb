@@ -10,7 +10,7 @@ class UsersControllerTest < ActionController::TestCase
 
     before = users(:one).setup
     assert_equal nil, before
-    post :update,  {name: "Muaad", phone_number: "254722654456", company_id: companies(:one).id, department_id: departments(:one).id, id: users(:one).id }
+    post :update,  {name: "Muaad", phone_number: "254722654456", company_id: companies(:one).id, department_id: departments(:one).id, id: users(:one).id, format: 'json' }
     
     assert_response :success
 
