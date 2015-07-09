@@ -47,7 +47,7 @@ end
 group :test do
   gem 'rails_layout'
   gem 'annotate'
-  gem 'guard-minitest'
+  # gem 'guard-minitest'
   #for capybara
   gem 'minitest-rails-capybara'
 
@@ -57,7 +57,7 @@ group :test do
   #for headless testing
   gem 'capybara-webkit'
   #improving tests’ output
-  gem 'turn'
+  # gem 'turn'
   #to open wwebpages while testing
   gem 'launchy'
   gem 'database_cleaner'
@@ -67,6 +67,7 @@ group :test do
   gem 'debugger'
   gem 'sqlite3'
   gem 'webmock'
+  gem 'minitest'
 end
 
 group :development do
