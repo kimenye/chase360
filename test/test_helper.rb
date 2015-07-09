@@ -7,6 +7,7 @@ require 'rails/test_help'
 require "minitest/rails/capybara"
 require 'rubygems'
 require 'webmock/minitest'
+require 'pry'
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
