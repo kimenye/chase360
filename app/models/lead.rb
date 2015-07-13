@@ -64,7 +64,7 @@ class Lead < ActiveRecord::Base
 			users = User.where(company_id: company.id, role_id: Role.find_by(name: "Relationship Officer").id)			
 			if !users.empty?
 				user = users.sample
-				self.assigned_to_id = user.id
+				self.assigned_to_id = user.id if self.assigned_to_id.blank?
 				save!				
 				LeadMailer.assigned_notification(user,self).deliver_now
 				if Rails.env.production?

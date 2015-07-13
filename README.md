@@ -131,7 +131,7 @@ The Base URL is: http://chase360.herokuapp.com/
     
     The Url is POST {BASE_URL}/leads.json
 
-    params { name, email, phone_number, submitted_by_id, product_id, branch_id, note }
+    params { name, email, phone_number, submitted_by_id, product_id, branch_id, note, assigned_to_id }
 
 
 #### Response
