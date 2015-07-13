@@ -179,6 +179,39 @@ You can get a feed of recent activity for a user
       ]
     }
 
+### Getting the Relationship Officers for a company
+
+You can the ROs who are capable to be assigned a lead
+
+#### Request
+    The URL is GET {BASE_URL}/company/{id}/users.json
+
+#### Response
+    
+    Returns a list of Relationship Officers for a company
+
+    {  
+       "users":[  
+          {  
+             "role_id":"1",
+             "id":2,
+             "employeeID":null,
+             "email":"test@gmail.com",
+             "phone_number":"254712345544",
+             "backend_admin":null,
+             "created_at":"2015-07-13T12:19:15.370Z",
+             "updated_at":"2015-07-13T12:19:15.370Z",
+             "provider":null,
+             "uid":null,
+             "company_id":2,
+             "setup":true,
+             "name":"Test",
+             "image_uid":null,
+             "department_id":null,
+             "branch_id":null
+          }
+       ]
+    }
 
 ### Retrieving Leads
 
