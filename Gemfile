@@ -81,7 +81,7 @@ group :production do
   # Makes running your Rails app easier. Based on the ideas behind 12factor.net
   # Needed for support of Asset Pipeline with Heroku
   # https://github.com/heroku/rails_12factor
-  gem 'rails_12factor'
+  # gem 'rails_12factor'
 
   # Use mysql as the database for Active Record
   gem 'mysql2'
