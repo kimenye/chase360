@@ -38,6 +38,7 @@ gem 'groupdate'
 gem 'chartkick' 
 gem 'google_visualr'
 gem 'httparty'
+gem 'rollbar'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
