@@ -21,7 +21,8 @@
       - Company.all.each do |company|
         .company{ class: cycle('odd', 'even') }
           %a.logo{ href: "#{new_lead_path}?company_id=#{company.id}" }
-            = image_tag company.image_url
+            - if !company.image.blank?
+              = image_tag company.image_url
           .description
             %h3
               = company.name
@@ -32,7 +33,8 @@
       - @products.each do |product|
         .product
           %a.logo{ href: "#{new_lead_path}?product_id=#{product.id}" }            
-            = image_tag product.image_url
+            - if !product.image.blank?
+              = image_tag product.image_url
           .description
             %h3
               = product.name
