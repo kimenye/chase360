@@ -14,11 +14,13 @@ ActiveAdmin.register Branch do
   #  permitted
   # end
 
+
+
   index do
     column :id
     column :company
     column :name
-    actions
+    actions :index, :show, :new, :create, :edit, :update
   end
 
   active_admin_import_anything do |file|
