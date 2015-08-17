@@ -18,7 +18,7 @@ ActiveAdmin.register Branch do
     column :id
     column :company
     column :name
-    # default_actions
+    actions
   end
 
   active_admin_import_anything do |file|
