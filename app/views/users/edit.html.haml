@@ -10,7 +10,7 @@
           Edit My Profile
 
 .details
-  = form_for(@user) do |f|
+  = form_for(@user, multipart: true) do |f|
     .row
       .small-12.columns
         = f.label :name
@@ -26,7 +26,7 @@
     .row
       .small-12.columns
         = f.label :image
-        %input{ type: 'file', name: 'image' }
+        = f.file_field :image, name: 'image'
     .row
       .small-12.columns
         = f.submit 'Save', class: 'button'
