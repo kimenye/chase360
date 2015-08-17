@@ -1,5 +1,6 @@
 ActiveAdmin.register Product do
-  
+  actions :all, except: [:destroy]
+
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Details" do
       f.input :name
@@ -34,7 +35,7 @@ ActiveAdmin.register Product do
     column :description
     column :image
     column :active
-    # default_actions
+    actions
   end
   
   permit_params :name, :description, :image, :company_id, :category_id, :active

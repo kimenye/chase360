@@ -1,5 +1,6 @@
 ActiveAdmin.register Administrator do
 
+  actions :all, except: [:destroy, :new]
   index do
     column :name
     actions

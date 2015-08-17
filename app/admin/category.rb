@@ -1,4 +1,6 @@
 ActiveAdmin.register Category do  
+  actions :all, except: [:destroy]
+  
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Details" do
       f.input :name
@@ -18,6 +20,7 @@ ActiveAdmin.register Category do
     column :id
     column :name
     column :company
+    actions
   end
 
   permit_params :name, :company_id
