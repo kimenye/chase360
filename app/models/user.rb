@@ -35,6 +35,21 @@ class User < ActiveRecord::Base
     role.try(:name)
   end
 
+  def self.valid_domains
+    [ 'lighthouse-property.com', 'genghis-capital.com', 'orchid-capital.com', 'chase-assurance.com', ' rafiki-assurance.com', 'tulip-healthcare.com', 'chasebank.co.ke', 'rafiki.co.ke', 'gencapunittrust.com', 'angua.co.ke', 'sprout.co.ke']
+  end
+
+  def self.is_allowed? email
+    found = false
+    self.valid_domains.each do |domain|
+      if email.end_with?(domain)
+        found = true
+        break
+      end
+    end
+    found
+  end
+
   def points_available
     if !chase_points.empty?
       return chase_points.collect { |point| point.redeemed ? 0 : point.amount }.inject{ |sum,x| sum + x }
